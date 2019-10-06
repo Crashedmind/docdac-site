@@ -1,0 +1,16 @@
+.. _exhale_struct_structHellomessage:
+
+Struct Hellomessage
+===================
+
+- Defined in :ref:`file_include_hello-world.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: Hellomessage
+   :members:
+   :protected-members:
+   :undoc-members:

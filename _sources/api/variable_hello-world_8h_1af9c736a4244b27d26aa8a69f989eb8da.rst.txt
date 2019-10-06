@@ -1,0 +1,13 @@
+.. _exhale_variable_hello-world_8h_1af9c736a4244b27d26aa8a69f989eb8da:
+
+Variable hellomessage
+=====================
+
+- Defined in :ref:`file_include_hello-world.h`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hellomessage

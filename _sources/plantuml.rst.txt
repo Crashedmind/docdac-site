@@ -1,0 +1,200 @@
+.. _plantuml-label:
+
+
+======================================================
+PlantUML
+======================================================
+
+
+Introduction
+--------------------------------
+
+PlantUML makes it easy to create and maintain software diagrams. 
+
+`real-world-plantuml.com <https://real-world-plantuml.com/umls/4619683198140416>`_ shows many examples of PlantUML diagrams.
+
+A template/theme is provided as part of DocDac that fits with the overall ReadTheDocs template i.e. blue, white and grey skins for PlantUML objects.
+
+
+.. note ::
+      PlantUML is great for software diagrams (class diagrams, sequence diagrams, etc...).  But for non-UML diagrams, or for where you want to control the exact layout, auto-generation via PlantUML may not be the way to go.
+
+Using PlantUML
+--------------
+PlantUML source files referenced in rst files are automatically converted to diagrams e.g.
+
+.. code-block:: 
+
+      .. uml:: plantuml/examples/state.puml
+      :align: center
+      :caption: *State Diagram - without theme* 
+
+.. tip ::
+
+      To manually convert a PlantUML file:
+
+      .. code-block:: 
+   
+            docker run -u `id -u $USER`:`id -g $USER` -i --rm -v $(pwd):/home/documentation -t  docdac:ubuntu-1.0 java -jar /usr/share/plantuml/plantuml.jar docs/plantuml/examples/state.puml  -o "nostyle"
+
+
+      To manually convert several PlantUML files:
+
+      .. code-block:: 
+   
+            docker run -u `id -u $USER`:`id -g $USER` -i --rm -v $(pwd):/home/documentation -t  docdac:ubuntu-1.0 java -jar /usr/share/plantuml/plantuml.jar -Idocs/plantuml/plantuml_cfg.puml docs/plantuml/examples/*.puml
+
+
+PlantUML Theme
+------------------------
+
+The default (yellow) PlantUML theme is overridden with a Blue (#BDE3FF and white) theme as specified in plantuml_cfg.puml:
+
+.. literalinclude:: ./plantuml/plantuml_cfg.puml
+    :linenos: 
+
+This theme is specified in Sphinx configuration file conf.py.
+
+
+Example diagrams
+-------------------
+
+Activity
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. uml:: plantuml/examples/activity.puml
+    :align: center
+    :caption: *Activity Diagram* 
+
+    
+     
+
+    
+.. literalinclude:: ./plantuml/examples/activity.puml
+    :linenos: 
+
+
+Sequence
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. uml:: plantuml/examples/sequence.puml
+    :align: center
+    :caption: *Sequence Diagram* 
+
+    
+
+.. literalinclude:: ./plantuml/examples/sequence.puml
+    :linenos: 
+
+
+State
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. uml:: plantuml/examples/state.puml
+    :align: center
+    :caption: *State Diagram* 
+
+.. literalinclude:: ./plantuml/examples/state.puml
+    :linenos: 
+
+
+
+Component
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. uml:: plantuml/examples/component.puml
+    :align: center
+    :caption: *Component Diagram* 
+
+.. literalinclude:: ./plantuml/examples/component.puml
+    :linenos: 
+
+
+
+
+Deployment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. uml:: plantuml/examples/deployment.puml
+    :align: center
+    :caption: *Deployment Diagram* 
+
+.. literalinclude:: ./plantuml/examples/deployment.puml
+    :linenos: 
+
+
+Timing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. uml:: plantuml/examples/timing.puml
+    :align: center
+    :caption: *Timing Diagram* 
+
+.. literalinclude:: ./plantuml/examples/timing.puml
+    :linenos: 
+
+
+Handwritten Draft Diagram
+--------------------------
+Per `handwritten <http://plantuml.com/handwritten>`_ "To emphasize the fact that your diagrams are still under work, you can generate handwritten diagrams".
+
+The plantuml_handwritten.puml is included to give the handwritten effect.
+
+.. literalinclude:: ./plantuml/plantuml_handwritten.puml
+    :linenos: 
+
+
+.. code-block:: 
+   
+    docker run -u `id -u $USER`:`id -g $USER` -i --rm -v $(pwd):/home/documentation -t  docdac:ubuntu-1.0 java -jar /usr/share/plantuml/plantuml.jar -Idocs/plantuml/plantuml_cfg.puml -Idocs/plantuml/plantuml_handwritten.puml  docs/plantuml/examples/*.puml -o handwritten/
+
+
+This givens a handwritten wavy effect to diagrams e.g.
+
+
+
+
+Draft Sequence
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. uml:: plantuml/examples/sequence_draft.puml
+    :align: center
+    :caption: *Sequence Diagram Draft* 
+
+.. literalinclude:: ./plantuml/examples/sequence_draft.puml
+    :linenos: 
+
+
+Draft State
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. uml:: plantuml/examples/state_draft.puml
+    :align: center
+    :caption: *State Diagram Draft* 
+
+.. literalinclude:: ./plantuml/examples/state_draft.puml
+    :linenos: 
+
+VSCode PlantUML Extension
+-------------------------
+
+`VSCode Plantuml Extension <https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml>`_ makes it easy to create and edit plantuml diagrams. It includes a real-time preview within VSCode.
+
+
+References
+--------------------------------
+
+#. http://plantuml.com/ homepage
+#. http://plantuml.com/command-line
+#. `real-world-plantuml.com <https://real-world-plantuml.com/umls/4619683198140416>`_ shows many examples of PlantUML diagrams.
+#. https://www.planttext.com/ free online site where you can copyNpaste the text description to auto-generate a diagram
+#. https://www.websequencediagrams.com/ free online site where you can copyNpaste the text description to auto-generate a diagram
+
+
+.. todo::
+
+    DFD diagram template
+
+    Attack tree templates
+

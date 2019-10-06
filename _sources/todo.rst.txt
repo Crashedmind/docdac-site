@@ -1,0 +1,25 @@
+
+======================================================
+To Do List
+======================================================
+
+Todo list is like Confluence Task List i.e. a report of open tasks across multiple pages is created.
+
+The todo tasks and todo report can be added or removed from the output via todo_include_todos setting in conf.py:
+
+.. code ::
+
+    todo_include_todos = True #Default is False i.e. removed
+
+
+Include the ``todolist`` directive in the rst file to get a list of all todos
+
+.. code ::
+    
+    .. todolist::
+
+See https://www.sphinx-doc.org/en/master/usage/extensions/todo.html.
+
+
+.. todolist::
+

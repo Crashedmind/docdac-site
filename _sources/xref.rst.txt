@@ -1,0 +1,123 @@
+=================
+Cross-Reference
+=================
+
+This section shows how to cross-reference documentation or code.
+
+
+Documentation References
+-------------------------
+
+
+
+Ref Titles
+^^^^^^^^^^^^^
+
+The `autosectionlabel Sphinx extension <https://www.sphinx-doc.org/en/master/usage/extensions/autosectionlabel.html>`_ automatically internally adds labels to headings. So no need to explicitly manually add labels.
+
+
+Examples
+
+.. code ::
+
+    :ref:`PlantUML`
+
+
+E.g. :ref:`PlantUML`
+
+.. literalinclude:: plantuml.rst
+    :linenos:
+    :lines: 3-6
+
+Ref Labels
+^^^^^^^^^^^^^
+If we want to reference something that isn't a heading or section then we can add our own labels manually.
+Labels can be added anywhere. And these can be referenced from elsewhere.
+
+Add label to target location
+
+.. literalinclude:: plantuml.rst
+    :linenos:
+    :lines: 1-6
+
+Reference the label
+
+.. code ::
+
+    :ref:`plantuml-label`
+
+E.g. :ref:`plantuml-label`
+
+Code References
+---------------
+
+
+We already have the code references from Doxygen already.
+
+To reference them, we use `Breathe's rich set of directives <https://breathe.readthedocs.io/en/latest/directives.html>`_:
+
+* doxygenstruct
+* doxygenfunction
+* doxygenclass
+* doxygendefine
+* doxygenenum
+* doxygenenumvalue
+* doxygenfile
+* doxygengroup
+* doxygenindex
+* doxygennamespace
+* doxygeninterface
+* doxygentypedef
+* doxygenunion
+* doxygenvariable
+
+Examples are given here for our HelloWorld C source for:
+
+* doxygenstruct
+* doxygenfunction
+
+Structure
+^^^^^^^^^^^^
+
+.. tip ::
+    See https://breathe.readthedocs.io/en/latest/struct.html
+
+
+.. code ::
+    
+    .. doxygenstruct:: Hellomessage
+    :members:
+
+gives 
+
+.. doxygenstruct:: Hellomessage
+   :members:
+
+for this structure 
+
+.. literalinclude:: ../include/hello-world.h
+    :linenos:
+    :lines: 1-16
+
+Function
+^^^^^^^^^^^^
+
+.. tip ::
+    See  https://breathe.readthedocs.io/en/latest/function.html
+
+.. code ::
+    
+    .. doxygenfunction:: HelloWorld
+
+gives
+
+.. doxygenfunction:: HelloWorld
+
+for this function
+
+.. literalinclude:: ../include/hello-world.h
+    :linenos:
+    :lines: 18-22
+
+
+

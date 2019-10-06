@@ -1,0 +1,33 @@
+======================================================
+Confluence and PlantUML
+======================================================
+
+
+Confluence PlantUML PlugIn
+==========================
+A `free plantuml plugin for confluence exists <https://marketplace.atlassian.com/apps/41025/plantuml-for-confluence?hosting=server&tab=overview>`_.
+
+
+Confluence Image from location
+===============================
+PlantUML images can be "Inserted" info confluence in several ways.
+
+Insert files and images - Attached to this page
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+A plantuml diagram can be attached as an image file per any other image file using the "Insert files and images - Attached to this page" option.
+
+Insert files and images - Images from the web
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Confluence images can be inserted via a URL i.e. "Images from the web".
+
+This URL could be e.g. 
+
+#. An image from bitbucket where the source code is also stored (the URL for the raw file would be used)
+#. An :ref:`Encoding URL for PlantUML Server for source and diagram` where Confluence invokes the URL to the PlantUML Server, and the PlantUML Server returns the associated image.
+
+.. note ::
+
+    For :ref:`Encoding URL for PlantUML Server for source and diagram`, if the source is edited, a new URL will be created so you will need to "Insert files and images - Images from the web" again for the new diagram to be displayed on the Confluence page.
+
+
+

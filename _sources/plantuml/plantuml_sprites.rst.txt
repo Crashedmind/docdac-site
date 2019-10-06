@@ -1,0 +1,376 @@
+
+Plantuml Sprites
+--------------------------------
+..code::
+      
+      -I ./plantuml/C4-PlantUML/C4_*.puml
+
+
+
+
+TODO: PlantUML icon library
+--------------------------------
+
+TODO: PlantUML HyperLinks
+--------------------------------
+
+
+
+
+TODO
+
+
+
+.. code-block:: 
+
+    plantuml -config plantuml_cfg.puml -psvg -o ../Images/Uml/ ./Uml/*.uml
+
+`Open Security
+Architecture <http://www.opensecurityarchitecture.org/>`__ (OSA) is an
+excellent resource for security architects providing a catalog of
+controls, patterns, and requirements from numerous standards, governance
+frameworks, legislation and regulations. See "`why have
+OSA? <http://www.opensecurityarchitecture.org/cms/about/why-have-osa>`__\ ".
+
+Resources include a `security architecture icon
+library <http://www.opensecurityarchitecture.org/cms/library/icon-library>`__
+available under a "`Creative Commons share-alike
+license <http://www.opensecurityarchitecture.org/cms/about/license-terms>`__\ ".
+
+Wouldn't it be great if this icon set was available for PlantUML so I,
+and other architects, could use it with our PlantUML diagrams....
+Indeed, so here it is:
+https://github.com/Crashedmind/PlantUML-opensecurityarchitecture-icons/tree/master/OSA-Plantuml-Icons
+
+The next sections walk thru how this was created. (See
+https://www.mytechiebits.com/Plantuml for an introduction to PlantUML)
+
+Converting the icon set to PlantUML Sprites
+===========================================
+
+1. Download the `security architecture
+   icons <http://www.opensecurityarchitecture.org/cms/library/icon-library>`__
+   and extract them into a directory e.g. "osaicons".
+2. Configure and/or add styles to the ``puml.ini`` configuration file,
+   or create your own
+3. Run the ``puml.py`` script against your downloaded ``<ICONS_DIR>``
+   using your custom config
+
+Pre-Requisites
+--------------
+
+1. Python 3
+
+Commands
+--------
+
+::
+
+
+    # Get OSA icons
+    mkdir ./OpenSecIcons/
+    mkdir ./OpenSecIcons/icons/
+    cd ./OpenSecIcons/icons/
+    wget http://www.opensecurityarchitecture.org/downloads/13_05_osa_icons_png.zip
+    unzip ./13_05_osa_icons_png.zip
+
+    # Get png to PlantUML conversion script
+    git clone git@github.com:milo-minderbinder/AWS-PlantUML.git
+    cd AWS-PlantUML
+
+    # Create PlantUML sprites from OSA png icons
+    python3 puml.py -c ./puml.ini ../OpenSecIcons/icons/ #icons output to ./dist/osa/
+
+Example PlantUML Code and Diagram using these PlantUML icons
+------------------------------------------------------------
+
+|image0| *screenshot from VisualStudio Code*
+
+All Icons
+---------
+
+Below is what the icons look like - and the associated code.
+
+.. figure:: all-1.png
+   :alt: 
+
+.. figure:: all-2.png
+   :alt: 
+
+::
+
+    @startuml
+
+    !include ./arrow/green/left/left.puml
+    !include ./arrow/yellow/right/right.puml
+    !include ./awareness/awareness.puml
+    !include ./contract/contract.puml
+    !include ./database/database.puml
+    !include ./desktop/desktop.puml
+    !include ./desktop/imac/imac.puml
+    !include ./device_music/device_music.puml
+    !include ./device_scanner/device_scanner.puml
+    !include ./device_usb/device_usb.puml
+    !include ./device_wireless_router/device_wireless_router.puml
+    !include ./disposal/disposal.puml
+    !include ./drive_optical/drive_optical.puml
+    !include ./firewall/firewall.puml
+    !include ./hub/hub.puml
+    !include ./ics/drive/drive.puml
+    !include ./ics/plc/plc.puml
+    !include ./ics/thermometer/thermometer.puml
+    !include ./id/card/card.puml
+    !include ./laptop/laptop.puml
+    !include ./lifecycle/lifecycle.puml
+    !include ./lightning/lightning.puml
+    !include ./media_flash/media_flash.puml
+    !include ./media_optical/media_optical.puml
+    !include ./media_tape/media_tape.puml
+    !include ./mobile/pda/pda.puml
+    !include ./padlock/padlock.puml
+    !include ./printer/printer.puml
+    !include ./site_branch/site_branch.puml
+    !include ./site_factory/site_factory.puml
+    !include ./user/audit/audit.puml
+    !include ./user/black/hat/hat.puml
+    !include ./user/blue/blue.puml
+    !include ./user/blue/security/specialist/specialist.puml
+    !include ./user/blue/sysadmin/sysadmin.puml
+    !include ./user/blue/tester/tester.puml
+    !include ./user/blue/tie/tie.puml
+    !include ./user/green/architect/architect.puml
+    !include ./user/green/business/manager/manager.puml
+    !include ./user/green/developer/developer.puml
+    !include ./user/green/green.puml
+    !include ./user/green/operations/operations.puml
+    !include ./user/green/project/manager/manager.puml
+    !include ./user/green/service/manager/manager.puml
+    !include ./user/green/warning/warning.puml
+    !include ./user/large/group/group.puml
+    !include ./users/blue/green/green.puml
+    !include ./user/white/hat/hat.puml
+    !include ./vpn/vpn.puml
+    !include ./wireless/network/network.puml
+
+
+
+    Left: <$left>
+    Right: <$right>
+    Awareness: <$awareness>
+    Contract: <$contract>
+    Database: <$database>
+    Desktop: <$desktop>
+    Imac: <$imac>
+    Device_music: <$device_music>
+    Device_scanner: <$device_scanner>
+    Device_usb: <$device_usb>
+    Device_wireless_router: <$device_wireless_router>
+    Disposal: <$disposal>
+    Drive_optical: <$drive_optical>
+    Firewall: <$firewall>
+    Hub: <$hub>
+    Drive: <$drive>
+    Plc: <$plc>
+    Thermometer: <$thermometer>
+    Card: <$card>
+    Laptop: <$laptop>
+    Lifecycle: <$lifecycle>
+    Lightning: <$lightning>
+    Media_flash: <$media_flash>
+    Media_optical: <$media_optical>
+    Media_tape: <$media_tape>
+    Pda: <$pda>
+    Padlock: <$padlock>
+    Printer: <$printer>
+    Site_branch: <$site_branch>
+    Site_factory: <$site_factory>
+    Audit: <$audit>
+    Hat: <$hat>
+    Blue: <$blue>
+    Specialist: <$specialist>
+    Sysadmin: <$sysadmin>
+    Tester: <$tester>
+    Tie: <$tie>
+    Architect: <$architect>
+    Manager: <$manager>
+    Developer: <$developer>
+    Green: <$green>
+    Operations: <$operations>
+    Manager: <$manager>
+    Manager: <$manager>
+    Warning: <$warning>
+    Group: <$group>
+    Green: <$green>
+    Hat: <$hat>
+    Vpn: <$vpn>
+    Network: <$network>
+
+
+
+
+
+
+
+    @enduml
+
+.. |image0| image:: example.png
+
+
+
+PlantUML
+========
+
+Some standard libaries are available for PlantUML. See
+http://plantuml.com/stdlib for what is supported in official release of
+PlantUML.
+
+Plantuml for AWS
+----------------
+
+`Plantuml for AWS <https://github.com/milo-minderbinder/AWS-PlantUML>`__
+uses the `icon set from
+AWS <https://aws.amazon.com/architecture/icons/>`__ and converts these
+to sprites for use with PlantUML.
+
+::
+
+    git clone git@github.com:milo-minderbinder/AWS-PlantUML.git
+
+Simple Example
+~~~~~~~~~~~~~~
+
+.. figure:: ./aws.png
+   :alt: 
+
+More Complex Example
+~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: ./aws-big.png
+   :alt: 
+
+PlantUML Sprites
+================
+
+PlantUML supports `sprites <http://plantuml.com/sprite>`__ (small
+graphic elements). Given we want to make diagrams communicate quickly
+and clearly, using sprites (rather than just boxes) is very effective.
+
+PlantUML Sprite Examples
+------------------------
+
+Some good examples of where PlantUML Sprites are used: \* `Plantuml for
+AWS <https://github.com/milo-minderbinder/AWS-PlantUML>`__ \*
+https://github.com/rabelenda/cicon-plantuml-sprites/tree/master/sprites
+that includes Devicons, Material, Weather icons.
+
+PlantUML Create a Sprite
+------------------------
+
+It's easy to create your own sprites from existing icons.
+
+Start with a 100x100 person icon png
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: ./C4person100.png
+   :alt: 
+
+Convert to sprite of different resolutions as follows
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Download plantuml.jar
+
+::
+
+     java -jar plantuml.jar -encodesprite 4 images/C4person100.png > C4person4.sprite
+     java -jar plantuml.jar -encodesprite 16 images/C4person100.png > C4person16.sprite
+     java -jar plantuml.jar -encodesprite 8 images/C4person100.png > C4person8.sprite
+
+.. figure:: ./sprite.png
+   :alt: 
+
+Create Diagram with our Sprites
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+See source code
+
+::
+
+    @startuml
+    sprite $C4person100Small [16x16/16] {
+    0000004774000000
+    0000067777600000
+    0000377777720000
+    0000477777740000
+    0000377777730000
+    0000077777600000
+    0244467777644420
+    3777777777777773
+    6777777777777776
+    7777777777777777
+    7777777777777777
+    7777777777777777
+    7777777777777777
+    7777777777777777
+    5777777777777774
+    0477777777777640
+    }
+
+    sprite $C4person100Big [100x100/16] {
+    0000000000000000000000000000000000000000000013456666543100000000000000000000000000000000000000000000
+    # removed rest of sprite here for clarity
+
+    Bob : <$C4person100Small> Small
+    Alice : <$C4person100Big> Big
+
+    Alice -> Bob 
+    @enduml
+
+.. figure:: ./bigsmall.png
+   :alt: 
+
+PlantUML HyperLinks
+===================
+
+PlantUML supports hyperlinks in output SVG images. This allows diagrams
+to be linked together, and for a user to easily navigate by clicking
+around per `Shneiderman's
+mantra <http://www.ifp.illinois.edu/nabhcs/abstracts/shneiderman.html>`__:
+> *Overview first, zoom and filter, then details-on-demand*
+
+|image1|
+
+::
+
+    @startuml
+    actor Bob [[http://plantuml.com/sequence-diagram]]
+    actor "This is [[http://plantuml.com/sequence-diagram Alice]] actor" as Alice
+    Bob -> Alice [[http://plantuml.com/index]] : hello
+    note left [[http://plantuml.com/index]]
+      a note with a link
+    end note
+    Alice -> Bob : hello with [[http://plantuml.com/index{Tooltip for message} some link]]
+    note right [[http://plantuml.com/index]] : another note
+    note left of Bob
+    ' You can use [[http://plantuml.com/index links in notes]] also.
+    end note
+    @enduml
+
+References
+==========
+
+1. http://plantuml.com/ homepage
+2. https://real-world-plantuml.com/umls/4619683198140416 is a PlantUML
+   showcase
+3. https://www.planttext.com/ free online site where you can copyNpaste
+   the text description to auto-generate a diagram
+4. https://www.websequencediagrams.com/ free online site where you can
+   copyNpaste the text description to auto-generate a diagram
+5. https://www.npmjs.com/package/c4builder NPM package using autodoc and
+   C4 template
+6. https://codurance.com/2019/03/17/just-enough-technical-documentation/
+   Good article that makes reference to a good book "Agile Modelling -
+   Scott Ambler"
+
+.. |image0| image:: ./keystore.png
+.. |image1| image:: links.png
+   :target: https://github.com/Crashedmind/MyTechieBits.com/blob/master/content/posts/Plantuml/links.svg

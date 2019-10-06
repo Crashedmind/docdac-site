@@ -1,0 +1,13 @@
+.. _exhale_function_hello-world_8h_1ad1ef9bc197682dbf5de414327d2b2a26:
+
+Function HelloWorld
+===================
+
+- Defined in :ref:`file_include_hello-world.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: HelloWorld(void)

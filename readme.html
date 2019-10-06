@@ -1,0 +1,1284 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Documentation of Code - Documentation as Code &mdash; DOCDAC  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Library API" href="api/library_root.html" />
+    <link rel="prev" title="Welcome to DOCDAC’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> DOCDAC
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Document and Reference C/C++ Code</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Documentation of Code - Documentation as Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#goals">Goals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sub-goals">Sub-goals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-case">Use-Case</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#what-s-out-there">What’s Out There</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#github">Github</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bitbucket">Bitbucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#confluence">Confluence</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#why-sphinx-and-restructuredtext">Why Sphinx and reStructuredText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tools">Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-toolset">Setup Toolset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#layout">Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pre-requisites">Pre-Requisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#make-docker-accessible-by-current-user">Make Docker Accessible by Current User</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-toolset">Get Toolset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-toolset-from-dockerfile">Build Toolset from Dockerfile</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ubuntu-vs-alpine-base">Ubuntu vs Alpine base</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sanity-test-toolset">Sanity Test Toolset</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#transpile-doxygen-output-to-sphinx-and-add-other-documentation">Transpile DoxyGen Output to Sphinx and add other Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configure-sphinx-conf-py">Configure Sphinx conf.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-source-code">Add Source Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-index-rst">Add index.rst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-sphinx">Run Sphinx</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#annex-build-source-code-doxygen">Annex: Build Source code Doxygen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#get-source-code">Get Source Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-doxygen-config-file">Create Doxygen Config File</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#build-source-code-doxygen-output">Build Source Code Doxygen Output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/library_root.html">Library API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xref.html">Cross-Reference</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Create Diagrams with Plantuml</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="plantuml.html">PlantUML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plantuml_sprites.html">Plantuml Sprites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plantuml_server.html">PlantUML Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c4.html">C4 Lightweight Software Architecture Description Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plantuml_c4.html">PlantUML C4</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Confluence</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="confluence.html">Confluence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="confluence_plantuml.html">Confluence and PlantUML</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">To Do List</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DOCDAC</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Documentation of Code - Documentation as Code</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/readme.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="documentation-of-code-documentation-as-code">
+<h1>Documentation of Code - Documentation as Code<a class="headerlink" href="#documentation-of-code-documentation-as-code" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Documentation-Of-Code: documentation that helps the user to do what they need i.e. explanation of the APIs supplemented with examples, howtos with associated diagrams.</p></li>
+<li><p>Documentation-As-Code: documentation that is current i.e. all documentation and diagram source maintained in GIT/Bitbucket with the source code. In addition the toolset is maintained as code.</p></li>
+</ol>
+<div class="section" id="sub-goals">
+<h3>Sub-goals<a class="headerlink" href="#sub-goals" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Bring documentation closer to the code so that it is in sync with the code:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Code is developed consistent with the documentation</p></li>
+<li><p>Documentation diagrams and description is current and correct</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Remove the initial friction to create diagrams - by auto-generating them</p></li>
+<li><p>Diagram source text files are version-controlled in GIT in relevant source code repo</p></li>
+<li><p>Consistent diagrams - that can be easily interlinked</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Use Themed Templates</p></li>
+<li><p>Use a common icon-set</p></li>
+<li><p>Hyper-Linkable diagrams</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Different types of documentation integrated i.e. make it easy to combine documentation into one repo - exportable to different views.</p></li>
+</ol>
+</div>
+<div class="section" id="use-case">
+<h3>Use-Case<a class="headerlink" href="#use-case" title="Permalink to this headline">¶</a></h3>
+<p>Given a code base consisting of:</p>
+<ol class="arabic simple">
+<li><p>Code written in C, C++</p></li>
+<li><p>Diagrams in Plantuml, Gliffy, various image formats (png, jpeg,…)</p></li>
+<li><p>Documentation written in a Wiki or Markup language or Office document</p></li>
+</ol>
+<p>We want to</p>
+<ol class="arabic simple">
+<li><p>To create documentation for users of the software - developers, and end-users.</p></li>
+<li><p>For the documention to be pretty and modern looking</p></li>
+<li><p>To support documentation extraction from C, C++ code and also standalone descriptive text files that include PlantUML diagrams.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="what-s-out-there">
+<h2>What’s Out There<a class="headerlink" href="#what-s-out-there" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="github">
+<h3>Github<a class="headerlink" href="#github" title="Permalink to this headline">¶</a></h3>
+<p>Github supports several markup languages for documentation; the most popular ones are Markdown (<em>.md) and reStructuredText (</em>.rst).</p>
+<table class="colwidths-given docutils align-default" id="id4">
+<caption><span class="caption-text">Markup supported by GitHub</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Markup</p></th>
+<th class="head"><p>Associated with / Origins</p></th>
+<th class="head"><p>Example Projects Using</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Markdown</p></td>
+<td><p>Web content in general</p></td>
+<td><p>Most Github projects. Static Site Generators with content in GitHub e.g. Gatsby</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">RST reStructured Text</a></p></td>
+<td><p>Python</p></td>
+<td><p>Most Python projects e.g. <a class="reference external" href="https://docs.scrapy.org/en/master/index.html">Scrapy</a>. The <a class="reference external" href="https://www.kernel.org/doc/html/v4.10/index.html">Linux kernel</a> as described <a class="reference external" href="https://www.kernel.org/doc/html/v4.14/doc-guide/sphinx.html">here</a></p></td>
+</tr>
+<tr class="row-even"><td><p>POD Plain Old Documentation</p></td>
+<td><p>Perl</p></td>
+<td><p>Perl, OpenSSL</p></td>
+</tr>
+<tr class="row-odd"><td><p>ASCIIDoc</p></td>
+<td><p>General documentation</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Doxygen</p></td>
+<td><p>C, C++.</p></td>
+<td><p>Most C, C++ projects</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rdoc</p></td>
+<td><p>Ruby</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="bitbucket">
+<h3>Bitbucket<a class="headerlink" href="#bitbucket" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://confluence.atlassian.com/bitbucket/wikis-221449748.html">Bitbucket</a> supports Markdown, reStructured Text, Textile and Creole.</p>
+<p>However a plugin may be required e.g. <a class="reference external" href="https://marketplace.atlassian.com/apps/1217687/restructuredtext-viewer-for-bitbucket?hosting=server&amp;tab=overview">ReStructuredText Viewer for Bitbucket plugin</a> to render an rst file when viewed in Bitbucket.</p>
+</div>
+<div class="section" id="confluence">
+<h3>Confluence<a class="headerlink" href="#confluence" title="Permalink to this headline">¶</a></h3>
+<p>Today we use Confluence which makes it easy for everyone to add content or provide comments on it. However, the content becomes stale and is disconnected from the code and software teams.</p>
+<p>Many community projects use Confluence for user documentation e.g. Apache <a class="reference external" href="https://cwiki.apache.org/confluence/display/HTTPD/">https://cwiki.apache.org/confluence/display/HTTPD/</a> which is a wiki containing user-contributed recipes, tips, and tricks for the Apache HTTP Server.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ol class="arabic simple">
+<li><p>We work with many teams that don’t have Confluence access (VFC, PCI and EMV labs, other subsiduaries/contractors). The information about the s/w should travel with the s/w.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="why-sphinx-and-restructuredtext">
+<h2>Why Sphinx and reStructuredText<a class="headerlink" href="#why-sphinx-and-restructuredtext" title="Permalink to this headline">¶</a></h2>
+<p>See these 2 good articles that answer this question:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://varnish-cache.org/docs/trunk/phk/sphinx.html">https://varnish-cache.org/docs/trunk/phk/sphinx.html</a>:</p></li>
+<li><p><a class="reference external" href="https://devblogs.microsoft.com/cppblog/clear-functional-c-documentation-with-sphinx-breathe-doxygen-cmake/">https://devblogs.microsoft.com/cppblog/clear-functional-c-documentation-with-sphinx-breathe-doxygen-cmake/</a></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <a class="reference external" href="https://www.kernel.org/doc/html/v4.10/index.html">Linux kernel</a> uses Sphinx and ReStructuredText as described <a class="reference external" href="https://www.kernel.org/doc/html/v4.14/doc-guide/sphinx.html">here</a>.</p>
+</div>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center" id="id5">
+<p class="plantuml">
+<img src="_images/plantuml-550e8bc8025025879e22fec07f508900ce0abbca.png" alt="&#64;startuml
+    !include &lt;c4/C4_Context.puml&gt; 
+    !include &lt;office/Concepts/learn.puml&gt;
+    !include &lt;office/Concepts/documents.puml&gt;
+    !include &lt;office/Sites/site_team.puml&gt;
+
+
+    LAYOUT_WITH_LEGEND()
+
+    title Documentation-of-Code Documentation-as-Code Top level diagram
+
+
+    Person(developer, Developer , &quot;&lt;$site_team&gt;\n A developer of the documentation and software.&quot;)
+    Person(consumer, User , &quot;&lt;$learn&gt;\n A user of the documentation and software.&quot; )
+
+    
+
+    System_Ext(source_comments, &quot;Source Comments&quot;, &quot;c, cpp \n  h, hpp&quot;)    
+    System_Ext(Images, &quot;Images&quot;, &quot;png, jpg, svg,...&quot;)
+    System_Ext(ADK_documentation, &quot;ADK documentation&quot;, &quot;e.g. Programmers guide&quot;)    
+    
+
+    System(plantuml_source, &quot;Plantuml Source&quot;, &quot;Inline in *.rst \n Separate as *.puml&quot;)    
+    System(RstFileTree, &quot;RST File Tree&quot;, &quot;index.rst \n ..toctree \n   ch1\n ch2 \n... &quot;)    
+    System_Ext(Confluence, &quot;Confluence&quot;, &quot;pages, images&quot;)    
+    System(Documentation, &quot;Documentation&quot;, &quot;&lt;$documents&gt;\n HTML \n PDF \n Confluence \n ... &quot;)    
+
+    System_Boundary(c0, &quot;Documentation-of-Code Documentation-as-Code Toolset&quot;) {
+
+    System(Doxygen, &quot;Doxygen&quot;)
+    System(Sphinx, &quot;Sphinx Toolset&quot;, &quot;Exhale \n Breathe \n Sphinx \n Python&quot;)    
+    
+    System(Conf, &quot;conf.py&quot;, &quot;Setup Breate and Doxygen\n specify Doxygen/xml path \n Themes e.g. ReadTheDocs \n Output format &quot;)    
+    System(PlantUML, &quot;PlantUML&quot;, &quot;&quot;)    
+    System(Confluence2RST, &quot;Confluence2RST&quot;, &quot;pages, images&quot;)  
+            
+    }
+
+    Rel_D(developer, source_comments, &quot;Creates content&quot;)
+    Rel_D(developer, ADK_documentation, &quot;Creates content&quot;)
+    Rel_D(developer, Images, &quot;Creates content&quot;)
+    Rel_D(developer, Confluence, &quot;Creates content&quot;)
+
+
+    Rel_D(source_comments, Doxygen, &quot;Source Code&quot;)
+    Rel_D(Images, Doxygen, &quot;Images&quot;)
+    Rel_D(ADK_documentation, Doxygen, &quot;documents in doxygen markup&quot;)
+
+    Rel_U(Sphinx, Doxygen, &quot;Exhale invokes Doxygen&quot;)
+    Rel_D(Doxygen, Sphinx, &quot;XML&quot;)
+    Rel_D(Sphinx, Documentation, &quot;Modern Documentation&quot;)
+    Rel_D(Documentation, consumer, &quot;Useful and Useable software&quot;)
+
+    Rel_R(Conf, Sphinx, &quot;Configuration&quot;)
+    Rel(RstFileTree, Sphinx, &quot;ReStructuredText Pages&quot;)
+    Rel_R(Sphinx, PlantUML, &quot;Sphinx invokes PlantUML&quot;)
+    Rel_L(PlantUML, Sphinx, &quot;Image as png, jpg, svg&quot;)
+    
+    Rel_D(plantuml_source, Sphinx, &quot;Source Code&quot;)
+
+    Rel_D(Confluence, Confluence2RST, &quot;Confluence Storage Format&quot;)
+    Rel_D(Confluence2RST, RstFileTree, &quot;ReStructuredText Pages, images&quot;)
+
+        
+    &#64;enduml
+
+
+"/>
+</p>
+<p class="caption"><span class="caption-text"><em>Overview of the Documentation System</em></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This diagram was created from PlantUML C4.</p>
+</div>
+<div class="section" id="tools">
+<h3>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-default" id="id6">
+<caption><span class="caption-text">Tools Used</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tool</p></th>
+<th class="head"><p>Details</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="http://www.doxygen.nl/">Doxygen</a></p></td>
+<td><p>Doxygen is the de facto standard tool for generating documentation from annotated C++ sources,  but it also supports other popular programming languages. Runs native.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://build-me-the-docs-please.readthedocs.io/en/latest/Using_Sphinx/OnReStructuredText.html">Sphinx</a></p></td>
+<td><p>Sphinx is a tool that makes it easy to create intelligent and beautiful documentation. Sphinx uses reStructuredText as its markup language, and many of its strengths come from the power and straightforwardness of reStructuredText and its parsing and translating suite, the Docutils. Runs on Python.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://breathe.readthedocs.io/en/latest/">Breathe</a></p></td>
+<td><p>Breathe provides a bridge between the Sphinx and Doxygen documentation systems. It is an easy way to include Doxygen information in a set of documentation generated by Sphinx. Runs on Python.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://exhale.readthedocs.io/en/latest/">Exhale</a></p></td>
+<td><p>Automatic C++ library API documentation generator using Doxygen, Sphinx, and Breathe. Exhale revives Doxygen’s class / file hierarchies using reStructuredText for superior markup syntax / websites.  Exhale provides a layer of automation, enabling launching Doxygen and generating the full website all from your conf.py. Runs on Python.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://plantuml.com">PlantUML</a></p></td>
+<td><p>PlantUML creates UML and other diagrams from a simple text description. Runs on Java.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="setup-toolset">
+<h2>Setup Toolset<a class="headerlink" href="#setup-toolset" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Linux host is used.</p></li>
+<li><p>Source code will reside on host - but be shared into the Docker container to process with the tools.</p></li>
+<li><p>Toolset will be installed in Docker container i.e. no tools installed/needed on host (except Docker).</p></li>
+<li><p>Docker Command will be run as current user. (Docker Daemon always runs as the root user)</p></li>
+<li><p>Docker Container will be run as current user i.e. not root which is the default.</p></li>
+<li><p>Docker Container runs stateless and on demand.</p></li>
+</ol>
+<div class="section" id="layout">
+<h3>Layout<a class="headerlink" href="#layout" title="Permalink to this headline">¶</a></h3>
+<p>The files layout is as per <a class="reference external" href="https://github.com/svenevs/exhale">https://github.com/svenevs/exhale</a>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>MyProject/
+├── documentation # Doxygen stuff - optional - for using doxygen manually
+│   ├── html/
+│   ├── latex/
+│   └── Doxyfile
+│
+├── docs/ #Sphinx stuff
+│   ├── api/
+│   │   └── library_root.rst
+│   │
+│   ├── conf.py # Sphinx configuration file
+│   ├── index.rst # Sphinx index file
+│   │
+│   └── doxyoutput/
+│       └── xml/ # Doxygen xml output - used as input to Sphinx
+│           └── index.xml
+│
+├── include/ # source headers
+│   └── h,hpp files
+│
+└── src/ # source C, C++ files
+    └── c,cpp files
+</pre></div>
+</div>
+</div>
+<div class="section" id="pre-requisites">
+<h3>Pre-Requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">¶</a></h3>
+<p>Docker is installed.</p>
+</div>
+<div class="section" id="make-docker-accessible-by-current-user">
+<h3>Make Docker Accessible by Current User<a class="headerlink" href="#make-docker-accessible-by-current-user" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>There’s 2 common ways to make Docker accessible by current user - see <a class="reference external" href="https://docs.docker.com/install/linux/linux-postinstall/">https://docs.docker.com/install/linux/linux-postinstall/</a>.</p></li>
+<li><p>Setfacl is used as an alternative to give more fine grain control.</p></li>
+</ol>
+</div>
+<p>Allow user to read/write the Unix socket used by docker.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo setfacl -m user:<span class="sb">`</span>whoami<span class="sb">`</span>:rw /var/run/docker.sock
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-toolset">
+<h3>Get Toolset<a class="headerlink" href="#get-toolset" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone ssh://git@bitbucket.verifone.com:7999/~chris_m11/docdac.git
+<span class="nb">cd</span> ./docdac
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-toolset-from-dockerfile">
+<h3>Build Toolset from Dockerfile<a class="headerlink" href="#build-toolset-from-dockerfile" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./docker_build.sh
+</pre></div>
+</div>
+<p>This takes several minutes e.g. ~4 minutes in timed example below (most of which is updating the apt repos)</p>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="p">.</span><span class="o">/</span><span class="n">docker_build</span><span class="p">.</span><span class="n">sh</span>
+<span class="p">...</span>
+<span class="n">Successfully</span> <span class="n">tagged</span> <span class="nl">docdac</span><span class="p">:</span><span class="n">latest</span>
+<span class="n">Successfully</span> <span class="n">tagged</span> <span class="nl">docdac</span><span class="p">:</span><span class="n">ubuntu</span><span class="o">-</span><span class="mf">1.0</span>
+
+<span class="hll"><span class="n">real</span>    <span class="mi">4</span><span class="n">m12</span><span class="mf">.616</span><span class="n">s</span>
+</span><span class="n">user</span>    <span class="mi">0</span><span class="n">m0</span><span class="mf">.350</span><span class="n">s</span>
+<span class="n">sys</span>     <span class="mi">0</span><span class="n">m0</span><span class="mf">.236</span><span class="n">s</span>
+</pre></div>
+</td></tr></table></div>
+<p>docker_build.sh source</p>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#!/bin/bash</span>
+
+<span class="n">docker</span> <span class="n">build</span> <span class="o">-</span><span class="n">t</span> <span class="nl">docdac</span><span class="p">:</span><span class="n">latest</span> <span class="o">-</span><span class="n">t</span> <span class="nl">docdac</span><span class="p">:</span><span class="n">ubuntu</span><span class="o">-</span><span class="mf">1.0</span> <span class="p">.</span>
+
+<span class="cp"># This fixes ReadTheDocs Theme Bug where table text does not auto wrap for long lines.</span>
+<span class="cp"># https:</span><span class="c1">//rackerlabs.github.io/docs-rackspace/tools/rtd-tables.html </span>
+<span class="n">mkdir</span> <span class="p">.</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="n">_static</span><span class="o">/</span>
+<span class="n">cp</span> <span class="p">.</span><span class="o">/</span><span class="n">theme_overrides</span><span class="p">.</span><span class="n">css</span> <span class="p">.</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="n">_static</span><span class="o">/</span>
+</pre></div>
+</td></tr></table></div>
+<p>Dockerfile source</p>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll">FROM ubuntu:latest
+</span>
+
+# MAINTAINER=&quot;Chris_m11&quot;
+
+
+RUN mkdir -p /usr/share/man/man1 \ 
+  &amp;&amp; apt-get update \
+  &amp;&amp; apt-get install -y \
+    wget \
+    python3-pip \
+    python3-dev \
+    default-jre \
+<span class="hll">    graphviz \
+</span><span class="hll">    doxygen \
+</span>  &amp;&amp; cd /usr/local/bin \
+  &amp;&amp; ln -s /usr/bin/python3 python \
+  &amp;&amp; pip3 install --no-cache --upgrade pip &amp;&amp; pip install \
+<span class="hll">     sphinx_rtd_theme \ 
+</span><span class="hll">     sphinxcontrib-plantuml \
+</span><span class="hll">     exhale \ 
+</span>  &amp;&amp; mkdir /usr/share/plantuml \
+<span class="hll">  &amp;&amp; wget https://sourceforge.net/projects/plantuml/files/latest/download -O ./plantuml.jar \
+</span>  &amp;&amp; mv ./plantuml.jar /usr/share/plantuml/ \
+  &amp;&amp; rm -rf /var/lib/apt/lists/* 
+
+  
+  RUN pip3 install --no-cache --upgrade  sphinxcontrib.yt  sphinxcontrib-confluencebuilder
+
+  # since plantuml url is not the final file location, we need to explicitly save the file as &quot;plantuml.jar&quot; 
+  # it would save as file &quot;download&quot; if we didn&#39;t         
+  
+  # /usr/share/man/man1 required so default-jre (Java Runtime required for Plantuml) installs
+
+  # https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#run recommends to RUN &#39;rm -rf /var/lib/apt/lists/*&#39; at end to reduce image size
+
+  # Plantuml + Java content adds ~300MB to image size
+
+#env setup
+ENV GRAPHVIZ_DOT=/usr/bin/dot
+
+WORKDIR /home/documentation
+
+</pre></div>
+</td></tr></table></div>
+<div class="section" id="ubuntu-vs-alpine-base">
+<h4>Ubuntu vs Alpine base<a class="headerlink" href="#ubuntu-vs-alpine-base" title="Permalink to this headline">¶</a></h4>
+<p>Ubuntu:latest is used as the base (<a class="reference external" href="https://ubuntu.com/blog/minimal-ubuntu-released">64MB</a>).
+While Alpine base is smaller (5MB) it is not used (even as a second Dockerfile option) for these reasons:</p>
+<ol class="arabic simple">
+<li><p>Consistency with Ubuntu development environment</p></li>
+<li><p>Alpine packaging and packages not compatible with Ubuntu (apk vs deb)</p></li>
+<li><p><a class="reference external" href="https://kubedex.com/follow-up-container-scanning-comparison">Poor CVE tracking</a></p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="sanity-test-toolset">
+<h3>Sanity Test Toolset<a class="headerlink" href="#sanity-test-toolset" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">docker_test</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Example Output</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="n">doxygen</span>
+</span><span class="hll"><span class="mf">1.8.13</span>
+</span>
+<span class="hll"><span class="n">sphinx</span><span class="o">-</span><span class="n">build</span> <span class="mf">2.2.0</span>
+</span>
+<span class="hll"><span class="p">(</span><span class="mf">0.000</span> <span class="o">-</span> <span class="mi">502</span> <span class="n">Mo</span><span class="p">)</span> <span class="mi">495</span> <span class="n">Mo</span> <span class="o">-</span> <span class="n">PlantUML</span> <span class="n">Version</span> <span class="mf">1.2019.09</span>
+</span><span class="p">(</span><span class="mf">0.004</span> <span class="o">-</span> <span class="mi">502</span> <span class="n">Mo</span><span class="p">)</span> <span class="mi">495</span> <span class="n">Mo</span> <span class="o">-</span> <span class="n">GraphicsEnvironment</span><span class="p">.</span><span class="n">isHeadless</span><span class="p">()</span> <span class="nb">true</span>
+<span class="p">(</span><span class="mf">0.004</span> <span class="o">-</span> <span class="mi">502</span> <span class="n">Mo</span><span class="p">)</span> <span class="mi">495</span> <span class="n">Mo</span> <span class="o">-</span> <span class="n">Forcing</span> <span class="o">-</span><span class="n">Djava</span><span class="p">.</span><span class="n">awt</span><span class="p">.</span><span class="n">headless</span><span class="o">=</span><span class="nb">true</span>
+<span class="p">(</span><span class="mf">0.004</span> <span class="o">-</span> <span class="mi">502</span> <span class="n">Mo</span><span class="p">)</span> <span class="mi">495</span> <span class="n">Mo</span> <span class="o">-</span> <span class="n">java</span><span class="p">.</span><span class="n">awt</span><span class="p">.</span><span class="n">headless</span> <span class="n">set</span> <span class="n">as</span> <span class="nb">true</span>
+<span class="p">(</span><span class="mf">0.004</span> <span class="o">-</span> <span class="mi">502</span> <span class="n">Mo</span><span class="p">)</span> <span class="mi">495</span> <span class="n">Mo</span> <span class="o">-</span> <span class="n">Forcing</span> <span class="n">resource</span> <span class="n">load</span> <span class="n">on</span> <span class="n">OpenJdk</span>
+<span class="p">(</span><span class="mf">0.125</span> <span class="o">-</span> <span class="mi">502</span> <span class="n">Mo</span><span class="p">)</span> <span class="mi">490</span> <span class="n">Mo</span> <span class="o">-</span> <span class="n">Found</span> <span class="mi">0</span> <span class="n">files</span>
+<span class="n">No</span> <span class="n">diagram</span> <span class="n">found</span>
+</pre></div>
+</div>
+<p>docker_test.sh source</p>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span>#!/bin/bash
+
+#test installed executables by running to show version of executable
+
+echo &quot;doxygen&quot;
+docker run -u `id -u $USER`:`id -g $USER` -i --rm -v $(pwd):/home/documentation -t docdac:ubuntu-1.0 doxygen -v
+
+echo &quot;&quot;
+docker run -u `id -u $USER`:`id -g $USER` -i --rm -v $(pwd):/home/documentation -t  docdac:ubuntu-1.0 sphinx-build --version
+
+echo &quot;&quot;
+docker run -u `id -u $USER`:`id -g $USER` -i --rm -v $(pwd):/home/documentation -t  docdac:ubuntu-1.0 java -jar /usr/share/plantuml/plantuml.jar -v
+
+
+
+
+
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="transpile-doxygen-output-to-sphinx-and-add-other-documentation">
+<h2>Transpile DoxyGen Output to Sphinx and add other Documentation<a class="headerlink" href="#transpile-doxygen-output-to-sphinx-and-add-other-documentation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configure-sphinx-conf-py">
+<h3>Configure Sphinx conf.py<a class="headerlink" href="#configure-sphinx-conf-py" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>svg format is used for images because it supports embedding hyperlinks.</p>
+</div>
+<p>conf.py source</p>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122</pre></div></td><td class="code"><div class="highlight"><pre><span></span># Configuration file for the Sphinx documentation builder.
+#
+# This file only contains a selection of the most common options. For a full
+# list see the documentation:
+# http://www.sphinx-doc.org/en/master/config
+
+# -- Path setup --------------------------------------------------------------
+
+# If extensions (or modules to document with autodoc) are in another directory,
+# add these directories to sys.path here. If the directory is relative to the
+# documentation root, use os.path.abspath to make it absolute, like shown here.
+#
+
+
+
+
+
+# -- Project information -----------------------------------------------------
+
+project = &#39;DOCDAC&#39;
+copyright = &#39;Crashedmind&#39;
+
+
+# Setup the breathe extension
+breathe_projects = {
+<span class="hll">    &quot;docdac&quot;: &quot;./doxyoutput/xml&quot;
+</span>}
+
+# Breathe Configuration
+breathe_default_project = &quot;docdac&quot;
+
+# -- General configuration ---------------------------------------------------
+
+# Add any Sphinx extension module names here, as strings. They can be
+# extensions coming with Sphinx (named &#39;sphinx.ext.*&#39;) or your custom
+# ones.
+# https://www.sphinx-doc.org/en/master/usage/extensions/index.html
+# sphinx.ext.autosectionlabel – Allow reference sections using its title
+
+extensions = [ &quot;breathe&quot;,
+              &quot;exhale&quot;,
+              &quot;sphinxcontrib.plantuml&quot;,
+              &quot;sphinx.ext.graphviz&quot;,
+              &quot;sphinx.ext.autosectionlabel&quot;,
+              &quot;sphinxcontrib.yt&quot;,
+              &quot;sphinx.ext.todo&quot;,
+              &quot;sphinxcontrib.confluencebuilder&quot;
+             
+]
+
+
+# Setup the exhale extension
+exhale_args = {
+    # These arguments are required
+    &quot;containmentFolder&quot;:     &quot;./api&quot;,
+    &quot;rootFileName&quot;:          &quot;library_root.rst&quot;,
+    &quot;rootFileTitle&quot;:         &quot;Library API&quot;,
+    &quot;doxygenStripFromPath&quot;:  &quot;..&quot;,
+    # Suggested optional arguments
+<span class="hll">    &quot;createTreeView&quot;:        True,
+</span>    # TIP: if using the sphinx-bootstrap-theme, you need
+    # &quot;treeViewIsBootstrap&quot;: True,
+<span class="hll">    &quot;exhaleExecutesDoxygen&quot;: True,
+</span><span class="hll">    &quot;exhaleDoxygenStdin&quot;:    &quot;INPUT = ../include&quot;
+</span>}
+
+plantuml = &#39;java -jar /usr/share/plantuml/plantuml.jar -config /home/documentation/docs/plantuml/plantuml_cfg.puml&#39; #location as per Dockerfile
+#plantuml_output_format = &#39;svg&#39; # svg format is used for images because it supports embedding hyperlinks. This causes some funnies so only enable per file basis as required
+
+# Configure Graphviz
+graphviz_output_format = &#39;svg&#39;
+#...
+
+
+# 
+confluence_publish = True
+confluence_space_name = &#39;DOCDAC&#39;
+# (for confluence cloud)
+confluence_server_url = &#39;https://confluence.verifone.com&#39;
+confluence_server_user = &#39;myuser&#39;
+confluence_server_pass = &#39;mypassword&#39;
+
+
+# Add any paths that contain templates here, relative to this directory.
+templates_path = [&#39;_templates&#39;]
+
+# List of patterns, relative to source directory, that match files and
+# directories to ignore when looking for source files.
+# This pattern also affects html_static_path and html_extra_path.
+<span class="hll">exclude_patterns = [&#39;_build&#39;, &#39;Thumbs.db&#39;, &#39;.DS_Store&#39;]
+</span><span class="hll">
+</span><span class="hll">
+</span><span class="hll"># -- Options for HTML output -------------------------------------------------
+</span><span class="hll">
+</span><span class="hll"># The theme to use for HTML and HTML Help pages.  See the documentation for
+</span><span class="hll"># a list of builtin themes.
+</span>#
+html_theme = &#39;sphinx_rtd_theme&#39;
+<span class="hll">
+</span># Add any paths that contain custom static files (such as style sheets) here,
+# relative to this directory. They are copied after the builtin static files,
+<span class="hll"># so a file named &quot;default.css&quot; will overwrite the builtin &quot;default.css&quot;.
+</span>html_static_path = [&#39;_static&#39;]
+
+
+# This fixes ReadTheDocs Theme Bug where table text does not auto wrap for long lines.
+# https://rackerlabs.github.io/docs-rackspace/tools/rtd-tables.html 
+html_context = {
+    &#39;css_files&#39;: [
+        &#39;_static/theme_overrides.css&#39;,  # override wide tables in RTD theme
+        ],
+     }
+
+# Tell sphinx what the primary language being documented is.
+primary_domain = &#39;cpp&#39;
+
+# Tell sphinx what the pygments highlight language should be.
+highlight_language = &#39;cpp&#39;
+
+
+#List any ToDos https://www.sphinx-doc.org/en/master/usage/extensions/todo.html
+todo_include_todos = True
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="add-source-code">
+<h3>Add Source Code<a class="headerlink" href="#add-source-code" title="Permalink to this headline">¶</a></h3>
+<p>include/hello-world.h source</p>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cm">/** </span>
+<span class="cm"> *  @file hello-world.h</span>
+<span class="cm"> */</span>
+
+
+<span class="cp">#pragma once</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * A dummy struct</span>
+<span class="cm"> */</span>
+<span class="k">struct</span> <span class="n">Hellomessage</span> <span class="p">{</span>
+  <span class="cm">/**</span>
+<span class="cm">  * message to use to say hello</span>
+<span class="cm">  */</span>
+	<span class="kt">char</span> <span class="n">message</span> <span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+<span class="p">}</span> <span class="n">hellomessage</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @brief	brief explanation of hello-world.c</span>
+<span class="cm"> * @return 1</span>
+<span class="cm"> */</span>
+<span class="kt">int</span> <span class="nf">HelloWorld</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="add-index-rst">
+<h3>Add index.rst<a class="headerlink" href="#add-index-rst" title="Permalink to this headline">¶</a></h3>
+<p>index.rst source</p>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69</pre></div></td><td class="code"><div class="highlight"><pre><span></span>Welcome to DOCDAC&#39;s documentation!
+=======================================
+
+    *Documentation-Of-Code Documentation-As-Code*
+
+
+.. tip ::
+    Within 5 minutes, you can build this guide and all the diagrams in it, and the toolset, from source text files in GIT.
+
+    .. code-block:: bash
+
+        git clone ssh://git@bitbucket.verifone.com:7999/~chris_m11/docdac.git #get the documentation and toolset (Dockerfile) source text files
+        cd ./docdac
+        ./docker_build.sh # build toolset form Docker file 
+        ./sphinx_build.sh # build this html guide using the toolset 
+
+    You can then use this as the basis to integrate your own DoxyGen content into a modern, powerful, good-looking documentation that includes easily generated diagrams. 
+    Click &quot;View page source&quot; on pages to see how they were written.
+
+    #. Create your own content 
+    #. Build it using ./sphinx_build.sh
+    #. Give users useful documentation they will enjoy reading
+
+
+
+
+.. comment
+    Sphinx is expecting 3 spaces under toctree i.e. it does not work with 4
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Document and Reference C/C++ Code
+
+   readme
+   api/library_root
+   xref.rst
+   
+.. toctree::
+   :maxdepth: 2   
+   :caption: Create Diagrams with Plantuml
+
+   plantuml
+   plantuml_sprites
+   plantuml_server
+   c4
+   plantuml_c4
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Confluence
+   
+   confluence
+   confluence_plantuml
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Other Features
+      
+   todo
+   
+Index
+==================
+
+* :ref:`genindex`
+
+
+
+
+
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="run-sphinx">
+<h3>Run Sphinx<a class="headerlink" href="#run-sphinx" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">sphinx_build</span><span class="p">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>sphinx_build.sh source</p>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span>#!/bin/bash
+
+# By default we use png image format for plantuml diagrams because it is the most supported. 
+# However, for diagrams with hyperlinks we use svg since it supports hyperlinks (png does not)
+docker run -u `id -u $USER`:`id -g $USER` -i  --rm -v $(pwd):/home/documentation -t docdac:ubuntu-1.0 java -jar /usr/share/plantuml/plantuml.jar -config /home/documentation/docs/plantuml/plantuml_cfg.puml -tsvg ./docs/plantuml/examples/links.puml
+
+docker run -u `id -u $USER`:`id -g $USER` -i  --rm -v $(pwd):/home/documentation -t docdac:ubuntu-1.0 bash ./_sphinx_build.sh
+
+
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="annex-build-source-code-doxygen">
+<h2>Annex: Build Source code Doxygen<a class="headerlink" href="#annex-build-source-code-doxygen" title="Permalink to this headline">¶</a></h2>
+<p>The toolset above (Exhale) builds Doxygen for us i.e. does all of below automatically.
+This section is shown here if someone wants to build DoxyGen only using toolset.</p>
+<div class="section" id="get-source-code">
+<h3>Get Source Code<a class="headerlink" href="#get-source-code" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="nl">ssh</span><span class="p">:</span><span class="c1">//git@bitbucket.verifone.com:7999/trin/trinity-vfc-deliverables.git</span>
+<span class="n">cd</span> <span class="p">.</span><span class="o">/</span><span class="n">trinity</span><span class="o">-</span><span class="n">vfc</span><span class="o">-</span><span class="n">deliverables</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-doxygen-config-file">
+<h3>Create Doxygen Config File<a class="headerlink" href="#create-doxygen-config-file" title="Permalink to this headline">¶</a></h3>
+<p>Run doxygen from container to create config file. Run container exes as me (current user:group) - not root</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>mkdir documentation #We do this from host so dir owner:group is host user (not root)
+docker run --user $(id -u):$(id -g) -i  -v $(pwd):/home/documentation/ -t docdac:ubuntu-1.0 doxygen -g
+</pre></div>
+</div>
+<p>Files created from container as local host user</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">la</span> <span class="n">documentation</span><span class="o">/</span>
+<span class="n">total</span> <span class="mi">116</span>
+<span class="n">drwxrwxr</span><span class="o">-</span><span class="n">x</span> <span class="mi">2</span> <span class="n">chris_m11</span> <span class="n">chris_m11</span>   <span class="mi">4096</span> <span class="n">Sep</span>  <span class="mi">3</span> <span class="mi">15</span><span class="o">:</span><span class="mo">02</span> <span class="p">.</span>
+<span class="n">drwxrwxr</span><span class="o">-</span><span class="n">x</span> <span class="mi">8</span> <span class="n">chris_m11</span> <span class="n">chris_m11</span>   <span class="mi">4096</span> <span class="n">Sep</span>  <span class="mi">3</span> <span class="mi">15</span><span class="o">:</span><span class="mo">02</span> <span class="p">..</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">chris_m11</span> <span class="n">chris_m11</span> <span class="mi">108516</span> <span class="n">Sep</span>  <span class="mi">3</span> <span class="mi">15</span><span class="o">:</span><span class="mo">02</span> <span class="n">Doxyfile</span>
+</pre></div>
+</div>
+<p>Configure Doxyfile.
+Only minimal changes shown for illustration purposes.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">PROJECT_NAME</span>           <span class="o">=</span> <span class="s">&quot;Trinity VFC Deliverables&quot;</span>
+<span class="p">...</span>
+<span class="n">INPUT</span> <span class="o">=</span> <span class="p">..</span><span class="o">/</span><span class="n">include</span>
+</pre></div>
+</div>
+<div class="section" id="build-source-code-doxygen-output">
+<h4>Build Source Code Doxygen Output<a class="headerlink" href="#build-source-code-doxygen-output" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>docker run -u `id -u $USER`:`id -g $USER` -i  -v $(pwd):/home/documentation/ -t docdac:ubuntu-1.0 doxygen
+
+#view pages with browser e.g.
+google-chrome documentation/html/index.html
+google-chrome documentation/html/structvfc__keystore__key__info__t.html
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api/library_root.html" class="btn btn-neutral float-right" title="Library API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to DOCDAC’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Crashedmind
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+======================================================
+PlantUML C4 
+======================================================
+
+`C4-PlantUML <https://github.com/RicardoNiepel/C4-PlantUML>`__ combines
+the benefits of :ref:`plantuml-label`, and the :ref:`c4-label` model for providing a simple way of describing
+and communicate software architectures. 
+
+`C4-PlantUML <https://github.com/RicardoNiepel/C4-PlantUML>`__ is now built in to `PlantUML stdlib <http://plantuml.com/stdlib>`_ 
+
+`C4-PlantUML <https://github.com/RicardoNiepel/C4-PlantUML>`__ also supports `C4 PlantUML
+Snippets for Visual Studio
+Code <https://github.com/RicardoNiepel/C4-PlantUML#snippets-for-visual-studio-code>`__
+
+
+
+.. note ::
+
+    The Plantuml source is automatically converted to images by Sphinx.
+    This can be done manually also e.g.: 
+
+    .. code ::
+        
+        docker run -u `id -u $USER`:`id -g $USER` -i --rm -v $(pwd):/home/documentation -t  docdac:ubuntu-1.0 java -jar /usr/share/plantuml/plantuml.jar -Idocs/plantuml/plantuml_cfg.puml docs/plantuml/C4-PlantUML/examples/*.puml
+
+Example Big Bank
+^^^^^^^^^^^^^^^^
+.. note :: 
+    The examples from `C4-PlantUML <https://github.com/RicardoNiepel/C4-PlantUML>`__ are used.
+
+    Person sprites are added to the customer box to emphasize the user in the diagrams.
+
+Context
+~~~~~~~
+
+.. note :: 
+    The top-level diagram shows the big boxes in the system.
+
+.. uml:: ./plantuml/C4-PlantUML/examples/C4_ContextDiagramSample-bigbankplc.puml
+    :align: center
+
+
+.. literalinclude:: ./plantuml/C4-PlantUML/examples/C4_ContextDiagramSample-bigbankplc.puml
+    :linenos: 
+
+.. note :: 
+    More detail is then added.
+
+.. uml:: ./plantuml/C4-PlantUML/examples/C4_ContextDiagramSample-bigbankplc-landscape.puml
+    :align: center
+
+.. literalinclude:: ./plantuml/C4-PlantUML/examples/C4_ContextDiagramSample-bigbankplc-landscape.puml
+    :linenos: 
+
+
+
+
+Container
+~~~~~~~~~
+.. note :: 
+    We then drill down into the "Internet Banking" box.
+
+.. uml:: ./plantuml/C4-PlantUML/examples/C4_ContainerDiagramSample-bigbankplc.puml
+    :align: center
+
+.. literalinclude:: ./plantuml/C4-PlantUML/examples/C4_ContainerDiagramSample-bigbankplc.puml
+    :linenos: 
+
+
+
+Component
+~~~~~~~~~
+.. note :: 
+    We then drill down into the "API Application" box.
+
+.. uml:: ./plantuml/C4-PlantUML/examples/C4_ComponentDiagramSample-bigbankplc.puml
+    :align: center
+
+.. literalinclude:: ./plantuml/C4-PlantUML/examples/C4_ComponentDiagramSample-bigbankplc.puml
+    :linenos: 
+
+Class
+~~~~~~~~~
+
+.. note :: 
+    We could then add the Class diagrams for the different Components.
+
+
+C4 Plantuml VSCode
+^^^^^^^^^^^^^^^^^^^
+
+
+.. |`Software Architecture for Developers: Volume 1 - Technical leadership and the balance with Agility <https://leanpub.com/b/software-architecture>`__| image:: images/swarchv1.png
+.. |`Software Architecture for Developers - Volume 2 - Visualise, document and explore your software architecture <https://leanpub.com/visualising-software-architecture>`__| image:: images/swarchv2.png
+

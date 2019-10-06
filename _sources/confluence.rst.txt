@@ -1,0 +1,70 @@
+======================================================
+Confluence
+======================================================
+
+Currently a lot of documentation is maintained in Confluence. 
+But it is disconnected from the source code and other information in the source code repository.
+
+There are several tools to convert to and from `Confluence Storage Format <https://confluence.atlassian.com/doc/confluence-storage-format-790796544.html>`_
+
+
+
+
+Export to Confluence
+=====================
+There are several tools (including a `Sphinx extension <https://sphinxcontrib-confluencebuilder.readthedocs.io/en/latest/index.html>`_ ) that can create Confluence format documentation and publish to Confluence.
+
+Confluence Builder for Sphinx
+----------------------------------------
+This `Sphinx extension <https://sphinxcontrib-confluencebuilder.readthedocs.io/en/latest/index.html>`_
+
+#. Enables a builder to generate Confluence-compatible markup documentation from Sphinx.
+#. Enables a builder to publish to a Confluence instance.
+
+
+
+See `example test output <https://jdknight.atlassian.net/wiki/spaces/confluencebuilder/pages/813170943/v1.1>`_ and a demo video:
+
+.. youtube:: http://www.youtube.com/watch?v=aB5N1KXlafs
+
+
+Atlassian token
+--------------------------------
+For Confluence Cloud, an api token can used for the password in ``conf.py`` 
+
+.. code ::
+
+    confluence_server_pass = APITokenValue
+
+An API token can be obtained for your cloud hosted Confluence site from https://id.atlassian.com/manage/api-tokens.
+
+
+
+Import from Confluence
+======================
+
+In general there's 2 ways to do this:
+
+#. Export from Confluence
+#. Scrape pages from Confluence
+
+Export from Confluence
+----------------------------------------
+`Confluence Export Content <https://confluence.atlassian.com/confcloud/export-content-to-word-pdf-html-and-xml-724764824.html>`_ to XML exports pages in the `Confluence Storage Format <https://confluence.atlassian.com/doc/confluence-storage-format-790796544.html>`_ (which is XHTML based, i.e. valid XML).
+These can then be transformed into Markdown (or ReST) using XSLT.
+
+There's several tools available for this:
+
+
+Pandoc
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Some examples of projects that used Pandoc to convert from Confluence to RST:
+
+#. http://udig-news.blogspot.com/2012/10/how-to-convert-from-confluence-to-sphinx.html
+
+#. https://jira.lsstcorp.org/browse/DM-5013 who went from https://confluence.lsstcorp.org/display/LDMDG#/ to https://developer.lsst.io/
+
+#. https://www.npmjs.com/package/confluence-to-github-markdown I've used this in the past. It works but does need some cleanup (which can be automated).
+
+
+

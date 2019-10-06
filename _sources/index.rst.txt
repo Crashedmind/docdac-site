@@ -1,0 +1,69 @@
+Welcome to DOCDAC's documentation!
+=======================================
+
+    *Documentation-Of-Code Documentation-As-Code*
+
+
+.. tip ::
+    Within 5 minutes, you can build this guide and all the diagrams in it, and the toolset, from source text files in GIT.
+
+    .. code-block:: bash
+
+        git clone ssh://git@bitbucket.verifone.com:7999/~chris_m11/docdac.git #get the documentation and toolset (Dockerfile) source text files
+        cd ./docdac
+        ./docker_build.sh # build toolset form Docker file 
+        ./sphinx_build.sh # build this html guide using the toolset 
+
+    You can then use this as the basis to integrate your own DoxyGen content into a modern, powerful, good-looking documentation that includes easily generated diagrams. 
+    Click "View page source" on pages to see how they were written.
+
+    #. Create your own content 
+    #. Build it using ./sphinx_build.sh
+    #. Give users useful documentation they will enjoy reading
+
+
+
+
+.. comment
+    Sphinx is expecting 3 spaces under toctree i.e. it does not work with 4
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Document and Reference C/C++ Code
+
+   readme
+   api/library_root
+   xref.rst
+   
+.. toctree::
+   :maxdepth: 2   
+   :caption: Create Diagrams with Plantuml
+
+   plantuml
+   plantuml_sprites
+   plantuml_server
+   c4
+   plantuml_c4
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Confluence
+   
+   confluence
+   confluence_plantuml
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Other Features
+      
+   todo
+   
+Index
+==================
+
+* :ref:`genindex`
+
+
+
+
+

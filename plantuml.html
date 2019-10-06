@@ -1,0 +1,1569 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PlantUML &mdash; DOCDAC  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Plantuml Sprites" href="plantuml_sprites.html" />
+    <link rel="prev" title="Cross-Reference" href="xref.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> DOCDAC
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Document and Reference C/C++ Code</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Documentation of Code - Documentation as Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/library_root.html">Library API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xref.html">Cross-Reference</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Create Diagrams with Plantuml</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PlantUML</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-plantuml">Using PlantUML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plantuml-theme">PlantUML Theme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-diagrams">Example diagrams</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#activity">Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sequence">Sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#state">State</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#component">Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deployment">Deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timing">Timing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#handwritten-draft-diagram">Handwritten Draft Diagram</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#draft-sequence">Draft Sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#draft-state">Draft State</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#vscode-plantuml-extension">VSCode PlantUML Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plantuml_sprites.html">Plantuml Sprites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plantuml_server.html">PlantUML Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c4.html">C4 Lightweight Software Architecture Description Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plantuml_c4.html">PlantUML C4</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Confluence</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="confluence.html">Confluence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="confluence_plantuml.html">Confluence and PlantUML</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">To Do List</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DOCDAC</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>PlantUML</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/plantuml.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="plantuml">
+<span id="plantuml-label"></span><h1>PlantUML<a class="headerlink" href="#plantuml" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>PlantUML makes it easy to create and maintain software diagrams.</p>
+<p><a class="reference external" href="https://real-world-plantuml.com/umls/4619683198140416">real-world-plantuml.com</a> shows many examples of PlantUML diagrams.</p>
+<p>A template/theme is provided as part of DocDac that fits with the overall ReadTheDocs template i.e. blue, white and grey skins for PlantUML objects.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>PlantUML is great for software diagrams (class diagrams, sequence diagrams, etc…).  But for non-UML diagrams, or for where you want to control the exact layout, auto-generation via PlantUML may not be the way to go.</p>
+</div>
+</div>
+<div class="section" id="using-plantuml">
+<h2>Using PlantUML<a class="headerlink" href="#using-plantuml" title="Permalink to this headline">¶</a></h2>
+<p>PlantUML source files referenced in rst files are automatically converted to diagrams e.g.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="n">uml</span><span class="o">::</span> <span class="n">plantuml</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">state</span><span class="p">.</span><span class="nl">puml</span>
+<span class="p">:</span><span class="nl">align</span><span class="p">:</span> <span class="nl">center</span>
+<span class="p">:</span><span class="nl">caption</span><span class="p">:</span> <span class="o">*</span><span class="n">State</span> <span class="n">Diagram</span> <span class="o">-</span> <span class="n">without</span> <span class="n">theme</span><span class="o">*</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To manually convert a PlantUML file:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>docker run -u `id -u $USER`:`id -g $USER` -i --rm -v $(pwd):/home/documentation -t  docdac:ubuntu-1.0 java -jar /usr/share/plantuml/plantuml.jar docs/plantuml/examples/state.puml  -o &quot;nostyle&quot;
+</pre></div>
+</div>
+<p>To manually convert several PlantUML files:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>docker run -u `id -u $USER`:`id -g $USER` -i --rm -v $(pwd):/home/documentation -t  docdac:ubuntu-1.0 java -jar /usr/share/plantuml/plantuml.jar -Idocs/plantuml/plantuml_cfg.puml docs/plantuml/examples/*.puml
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="plantuml-theme">
+<h2>PlantUML Theme<a class="headerlink" href="#plantuml-theme" title="Permalink to this headline">¶</a></h2>
+<p>The default (yellow) PlantUML theme is overridden with a Blue (#BDE3FF and white) theme as specified in plantuml_cfg.puml:</p>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&#39; https://plantuml-documentation.readthedocs.io/en/latest/formatting/all-skin-params.html
+&#39; colour  decoder: https://www.google.com/search?q=hex+color+picker&amp;oq=hex+col&amp;aqs=chrome.0.0l2j69i57j0l3.1975j0j7&amp;sourceid=chrome&amp;ie=UTF-8
+&#39; http://plantuml.com/skinparam
+
+skinparam backgroundColor white
+
+skinparam note {
+    BackgroundColor #F1FFFF
+    BorderColor #2980B9
+}
+
+skinparam activity {
+    BackgroundColor #BDE3FF
+    ArrowColor #2980B9
+    BorderColor #2980B9
+    StartColor #227BC6
+    EndColor #227BC6
+    BarColor #227BC6
+}
+
+skinparam sequence {
+    ArrowColor  #2980B9
+    DividerBackgroundColor  #BDE3FF
+    GroupBackgroundColor    #BDE3FF
+    LifeLineBackgroundColor white
+    LifeLineBorderColor #2980B9
+    ParticipantBackgroundColor  #BDE3FF
+    ParticipantBorderColor  #2980B9
+    BoxLineColor    #2980B9
+    BoxBackgroundColor  #DDDDDD
+}
+
+skinparam componentBackgroundColor    #BDE3FF
+skinparam component {
+    skinparam componentArrowColor #A80036
+    skinparam BorderColor    #A80036
+    skinparam InterfaceBackgroundColor   #BDE3FF
+    skinparam InterfaceBorderColor   #A80036
+}
+
+
+&#39;for some reason if we put BackgroundColor inside {} it does not work?
+skinparam stateBackgroundColor #BDE3FF
+skinparam state {
+    skinparam BorderColor #2980B9
+    skinparam ArrowColor #2980B9
+    skinparam StartColor black
+    skinparam EndColor   black
+}
+
+
+skinparam stereotype {                  
+    skinparam CBackgroundColor  #ADD1B2
+    skinparam ABackgroundColor  #A9DCDF
+    skinparam IBackgroundColor  #B4A7E5
+    skinparam EBackgroundColor  #EB937F
+}
+
+&#39;for some reason if we put BackgroundColor inside {} it does not work?
+skinparam actorBackgroundColor #BDE3FF
+skinparam actor {
+    skinparam BorderColor    #A80036
+}
+
+skinparam usecase {
+    skinparam ArrowColor   #A80036
+    skinparam BorderColor  #A80036
+}
+
+skinparam class {
+    skinparam ArrowColor #A80036
+    skinparam BackgroundColor    #BDE3FF
+    skinparam BorderColor    #A80036
+}
+
+
+skinparam object {
+    skinparam ArrowColor    #A80036
+    skinparam BackgroundColor   #BDE3FF
+    skinparam BorderColor   #A80036
+}
+
+
+skinparam packageBackgroundColor  #white
+skinparam agentBackgroundColor  #BDE3FF
+skinparam artifactBackgroundColor  #BDE3FF
+skinparam boundaryBackgroundColor  #BDE3FF
+skinparam cardBackgroundColor  #BDE3FF
+skinparam cloudBackgroundColor  #BDE3FF
+skinparam controlBackgroundColor  #BDE3FF
+skinparam databaseBackgroundColor  #BDE3FF
+skinparam entityBackgroundColor  #BDE3FF
+skinparam fileBackgroundColor  #BDE3FF
+skinparam folderBackgroundColor  #BDE3FF
+skinparam frameBackgroundColor  #BDE3FF
+skinparam interfaceBackgroundColor  #BDE3FF
+skinparam nodeBackgroundColor  #BDE3FF
+skinparam queueBackgroundColor  #BDE3FF
+skinparam stackBackgroundColor  #BDE3FF
+skinparam rectangleBackgroundColor  #BDE3FF
+skinparam storageBackgroundColor  #BDE3FF
+skinparam usecaseBackgroundColor #BDE3FF
+</pre></div>
+</td></tr></table></div>
+<p>This theme is specified in Sphinx configuration file conf.py.</p>
+</div>
+<div class="section" id="example-diagrams">
+<h2>Example diagrams<a class="headerlink" href="#example-diagrams" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="activity">
+<h3>Activity<a class="headerlink" href="#activity" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="id4">
+<p class="plantuml">
+<img src="_images/plantuml-2305ea052199c42b67e967dfc8880cd43f3ac960.png" alt="' https://real-world-plantuml.com/umls/4886556628221952
+
+&#64;startuml
+
+
+
+title Servlet Container
+
+(*) --&gt; &quot;ClickServlet.handleRequest()&quot;
+--&gt; &quot;new Page&quot;
+
+if &quot;Page.onSecurityCheck&quot; then
+  -&gt;[true] &quot;Page.onInit()&quot;
+
+  if &quot;isForward?&quot; then
+   -&gt;[no] &quot;Process controls&quot;
+
+   if &quot;continue processing?&quot; then
+     --&gt;[yes] ===RENDERING===
+   else
+     --&gt;[no] ===REDIRECT_CHECK===
+   endif
+
+  else
+   --&gt;[yes] ===RENDERING===
+  endif
+
+  if &quot;is Post?&quot; then
+    --&gt;[yes] &quot;Page.onPost()&quot;
+    --&gt; &quot;Page.onRender()&quot; as render
+    --&gt; ===REDIRECT_CHECK===
+  else
+    --&gt;[no] &quot;Page.onGet()&quot;
+    --&gt; render
+  endif
+
+else
+  --&gt;[false] ===REDIRECT_CHECK===
+endif
+
+if &quot;Do redirect?&quot; then
+ -&gt;[yes] &quot;redirect request&quot;
+ --&gt; ==BEFORE_DESTROY===
+else
+ if &quot;Do Forward?&quot; then
+  -left-&gt;[yes] &quot;Forward request&quot;
+  --&gt; ==BEFORE_DESTROY===
+ else
+  -right-&gt;[no] &quot;Render page template&quot;
+  --&gt; ==BEFORE_DESTROY===
+ endif
+endif
+
+--&gt; &quot;Page.onDestroy()&quot;
+--&gt;(*)
+
+&#64;enduml
+
+"/>
+</p>
+<p class="caption"><span class="caption-text"><em>Activity Diagram</em></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&#39; https://real-world-plantuml.com/umls/4886556628221952
+
+@startuml
+
+
+
+title Servlet Container
+
+(*) --&gt; &quot;ClickServlet.handleRequest()&quot;
+--&gt; &quot;new Page&quot;
+
+if &quot;Page.onSecurityCheck&quot; then
+  -&gt;[true] &quot;Page.onInit()&quot;
+
+  if &quot;isForward?&quot; then
+   -&gt;[no] &quot;Process controls&quot;
+
+   if &quot;continue processing?&quot; then
+     --&gt;[yes] ===RENDERING===
+   else
+     --&gt;[no] ===REDIRECT_CHECK===
+   endif
+
+  else
+   --&gt;[yes] ===RENDERING===
+  endif
+
+  if &quot;is Post?&quot; then
+    --&gt;[yes] &quot;Page.onPost()&quot;
+    --&gt; &quot;Page.onRender()&quot; as render
+    --&gt; ===REDIRECT_CHECK===
+  else
+    --&gt;[no] &quot;Page.onGet()&quot;
+    --&gt; render
+  endif
+
+else
+  --&gt;[false] ===REDIRECT_CHECK===
+endif
+
+if &quot;Do redirect?&quot; then
+ -&gt;[yes] &quot;redirect request&quot;
+ --&gt; ==BEFORE_DESTROY===
+else
+ if &quot;Do Forward?&quot; then
+  -left-&gt;[yes] &quot;Forward request&quot;
+  --&gt; ==BEFORE_DESTROY===
+ else
+  -right-&gt;[no] &quot;Render page template&quot;
+  --&gt; ==BEFORE_DESTROY===
+ endif
+endif
+
+--&gt; &quot;Page.onDestroy()&quot;
+--&gt;(*)
+
+@enduml
+
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="sequence">
+<h3>Sequence<a class="headerlink" href="#sequence" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="id5">
+<p class="plantuml">
+<img src="_images/plantuml-6e75d747d06b9d5bc3bf9f3029c1a4504762f18c.png" alt="' https://real-world-plantuml.com/umls/4606798564687872
+
+
+&#64;startuml
+autonumber
+
+    participant &quot;app: Application&quot; as app
+    participant &quot;cm: ContentManager&quot; as cm
+    participant &quot;item: DownloadItem&quot; as item
+    
+    activate app
+    activate cm
+    
+    note over app: User enters media info page
+    
+    note over app: Check if item exists
+    app-&gt;cm: findItem(itemId)
+    cm-&gt;cm: lookup(itemId)
+    
+    alt item found
+        cm--&gt;app: item
+    else not found
+        cm--&gt;app: null
+        app-&gt;cm: createItem(itemId, contentURL)
+        cm-&gt;item: new(itemId, contentURL)
+        activate item
+        cm--&gt;app: item
+    
+        app-&gt;cm: loadMetadata()
+        note over cm
+            Download and parse manifest, save in db
+        end note
+        cm--&gt;app: onTracksAvailable
+        cm--&gt;app: onDownloadMetadata
+        note over app: * See //track-selection// flow
+    end group
+    
+    note over app: app is ready to start downloading
+    app-&gt;item: startDownload()
+    
+    
+    &#64;enduml"/>
+</p>
+<p class="caption"><span class="caption-text"><em>Sequence Diagram</em></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&#39; https://real-world-plantuml.com/umls/4606798564687872
+
+
+@startuml
+autonumber
+
+    participant &quot;app: Application&quot; as app
+    participant &quot;cm: ContentManager&quot; as cm
+    participant &quot;item: DownloadItem&quot; as item
+    
+    activate app
+    activate cm
+    
+    note over app: User enters media info page
+    
+    note over app: Check if item exists
+    app-&gt;cm: findItem(itemId)
+    cm-&gt;cm: lookup(itemId)
+    
+    alt item found
+        cm--&gt;app: item
+    else not found
+        cm--&gt;app: null
+        app-&gt;cm: createItem(itemId, contentURL)
+        cm-&gt;item: new(itemId, contentURL)
+        activate item
+        cm--&gt;app: item
+    
+        app-&gt;cm: loadMetadata()
+        note over cm
+            Download and parse manifest, save in db
+        end note
+        cm--&gt;app: onTracksAvailable
+        cm--&gt;app: onDownloadMetadata
+        note over app: * See //track-selection// flow
+    end group
+    
+    note over app: app is ready to start downloading
+    app-&gt;item: startDownload()
+    
+    
+    @enduml
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="state">
+<h3>State<a class="headerlink" href="#state" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="id6">
+<p class="plantuml">
+<img src="_images/plantuml-c533e767910b1cc1adaa6885672becff778692db.png" alt="' https://real-world-plantuml.com/umls/4724780511002624
+
+&#64;startuml
+
+title performing I/O
+
+[*] --&gt; Client
+Client: Process uri in Client
+
+Client -&gt; Server : uri-data
+state Server {
+  [*] -&gt; monitor
+  monitor: Server starts monitoring
+  monitor: Stops at end of Server life
+}
+
+Client -&gt; Database: Client
+Database: database operations
+
+state runcommand {
+  Database -&gt; command: Database
+  command -&gt; find: query
+  command: send command to server
+
+  monitor -&gt; select: server-data
+
+  find --&gt; select
+  select: select process to find proper server
+  select --&gt; find: Server
+
+  find --&gt; query: server
+  query: encodes query and send to server
+  query: decodes result
+  query --&gt; find: result
+
+}
+
+find -&gt; Cursor: cursor-data
+Cursor: stores docs
+Cursor: retrieves new docs
+
+Cursor -&gt; fetch: document
+fetch --&gt; getmore
+getmore: encodes query and send to server
+getmore: decodes result
+getmore --&gt; fetch: new-documents
+
+
+fetch -&gt; [*]
+&#64;enduml"/>
+</p>
+<p class="caption"><span class="caption-text"><em>State Diagram</em></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&#39; https://real-world-plantuml.com/umls/4724780511002624
+
+@startuml
+
+title performing I/O
+
+[*] --&gt; Client
+Client: Process uri in Client
+
+Client -&gt; Server : uri-data
+state Server {
+  [*] -&gt; monitor
+  monitor: Server starts monitoring
+  monitor: Stops at end of Server life
+}
+
+Client -&gt; Database: Client
+Database: database operations
+
+state runcommand {
+  Database -&gt; command: Database
+  command -&gt; find: query
+  command: send command to server
+
+  monitor -&gt; select: server-data
+
+  find --&gt; select
+  select: select process to find proper server
+  select --&gt; find: Server
+
+  find --&gt; query: server
+  query: encodes query and send to server
+  query: decodes result
+  query --&gt; find: result
+
+}
+
+find -&gt; Cursor: cursor-data
+Cursor: stores docs
+Cursor: retrieves new docs
+
+Cursor -&gt; fetch: document
+fetch --&gt; getmore
+getmore: encodes query and send to server
+getmore: decodes result
+getmore --&gt; fetch: new-documents
+
+
+fetch -&gt; [*]
+@enduml
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="component">
+<h3>Component<a class="headerlink" href="#component" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="id7">
+<p class="plantuml">
+<img src="_images/plantuml-ca7c3d614705eebbc93ccd38f7e105b56eed1ee6.png" alt="' https://real-world-plantuml.com/umls/4619683198140416
+
+&#64;startuml
+package &quot;ArduCopter - Simple Version&quot; {
+  [EnginesControl] -down-&gt; Engines
+  [EnginesControl] - [MainCopterProcess]
+  [MainCopterProcess] - [Rangefinder]
+  [Rangefinder] -down-&gt; BottomSonicSensor
+  [MainCopterProcess] -down- [GPSSignalListener]
+}
+package &quot;CarDuino Nano&quot; {
+  [GPSSignalMaker] -down- [MainCarDuinoProcess]
+  [MainCarDuinoProcess] -down- [CommandListener]
+  [GPSSignalMaker] -up- [GPSSignalSender]
+  [MainCarDuinoProcess] - [5x Rangefinders]
+  [5x Rangefinders] -down-&gt; 5xSonicSensors
+  [TelemetricsSender] - [MainCarDuinoProcess]
+  [TelemetricsSender] -down- MiniUSB
+  [CommandListener] -left- MiniUSB
+}
+package &quot;Intell 2800 - Simple Version&quot; {
+  [ComputerCommunications] -up- USB
+  [ComputerCommunications] - [MainComputerProcess]
+  [KinectProcessing] -down-&gt; KINECT
+  [KinectProcessing] - [MainComputerProcess]
+  [VideoProcessing] -down-&gt; Camera
+  [VideoProcessing] - [MainComputerProcess] 
+  [ComputerCommunications2] -up- [MainComputerProcess]
+  [ComputerCommunications2] -down- WiFi
+  [ComputerCommunications2] -down- Bluetooth
+}
+[GPSSignalListener] -down- [GPSSignalSender]
+USB -up- MiniUSB
+&#64;enduml"/>
+</p>
+<p class="caption"><span class="caption-text"><em>Component Diagram</em></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&#39; https://real-world-plantuml.com/umls/4619683198140416
+
+@startuml
+package &quot;ArduCopter - Simple Version&quot; {
+  [EnginesControl] -down-&gt; Engines
+  [EnginesControl] - [MainCopterProcess]
+  [MainCopterProcess] - [Rangefinder]
+  [Rangefinder] -down-&gt; BottomSonicSensor
+  [MainCopterProcess] -down- [GPSSignalListener]
+}
+package &quot;CarDuino Nano&quot; {
+  [GPSSignalMaker] -down- [MainCarDuinoProcess]
+  [MainCarDuinoProcess] -down- [CommandListener]
+  [GPSSignalMaker] -up- [GPSSignalSender]
+  [MainCarDuinoProcess] - [5x Rangefinders]
+  [5x Rangefinders] -down-&gt; 5xSonicSensors
+  [TelemetricsSender] - [MainCarDuinoProcess]
+  [TelemetricsSender] -down- MiniUSB
+  [CommandListener] -left- MiniUSB
+}
+package &quot;Intell 2800 - Simple Version&quot; {
+  [ComputerCommunications] -up- USB
+  [ComputerCommunications] - [MainComputerProcess]
+  [KinectProcessing] -down-&gt; KINECT
+  [KinectProcessing] - [MainComputerProcess]
+  [VideoProcessing] -down-&gt; Camera
+  [VideoProcessing] - [MainComputerProcess] 
+  [ComputerCommunications2] -up- [MainComputerProcess]
+  [ComputerCommunications2] -down- WiFi
+  [ComputerCommunications2] -down- Bluetooth
+}
+[GPSSignalListener] -down- [GPSSignalSender]
+USB -up- MiniUSB
+@enduml
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="deployment">
+<h3>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="id8">
+<p class="plantuml">
+<img src="_images/plantuml-4634852e86e25a14c2b226c73eccb8171eb62516.png" alt="' http://plantuml.com/deployment-diagram
+
+&#64;startuml
+actor actor
+agent agent
+artifact artifact
+boundary boundary
+card card
+cloud cloud
+component component
+control control
+database database
+entity entity
+file file
+folder folder
+frame frame
+interface  interface
+node node
+package package
+queue queue
+stack stack
+rectangle rectangle
+storage storage
+usecase usecase
+&#64;enduml
+
+"/>
+</p>
+<p class="caption"><span class="caption-text"><em>Deployment Diagram</em></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&#39; http://plantuml.com/deployment-diagram
+
+@startuml
+actor actor
+agent agent
+artifact artifact
+boundary boundary
+card card
+cloud cloud
+component component
+control control
+database database
+entity entity
+file file
+folder folder
+frame frame
+interface  interface
+node node
+package package
+queue queue
+stack stack
+rectangle rectangle
+storage storage
+usecase usecase
+@enduml
+
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="timing">
+<h3>Timing<a class="headerlink" href="#timing" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="id9">
+<p class="plantuml">
+<img src="_images/plantuml-c1269ec42d9e5ce40e9fc43a7e6623b3faa7eb9b.png" alt="' http://plantuml.com/timing-diagram
+
+&#64;startuml
+robust &quot;Web Browser&quot; as WB
+concise &quot;Web User&quot; as WU
+
+WB is Initializing
+WU is Absent
+
+&#64;WB
+0 is idle
++200 is Processing
++100 is Waiting
+WB&#64;0 &lt;-&gt; &#64;50 : {50 ms lag}
+
+&#64;WU
+0 is Waiting
++500 is ok
+&#64;200 &lt;-&gt; &#64;+150 : {150 ms}
+&#64;enduml"/>
+</p>
+<p class="caption"><span class="caption-text"><em>Timing Diagram</em></span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&#39; http://plantuml.com/timing-diagram
+
+@startuml
+robust &quot;Web Browser&quot; as WB
+concise &quot;Web User&quot; as WU
+
+WB is Initializing
+WU is Absent
+
+@WB
+0 is idle
++200 is Processing
++100 is Waiting
+WB@0 &lt;-&gt; @50 : {50 ms lag}
+
+@WU
+0 is Waiting
++500 is ok
+@200 &lt;-&gt; @+150 : {150 ms}
+@enduml
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="handwritten-draft-diagram">
+<h2>Handwritten Draft Diagram<a class="headerlink" href="#handwritten-draft-diagram" title="Permalink to this headline">¶</a></h2>
+<p>Per <a class="reference external" href="http://plantuml.com/handwritten">handwritten</a> “To emphasize the fact that your diagrams are still under work, you can generate handwritten diagrams”.</p>
+<p>The plantuml_handwritten.puml is included to give the handwritten effect.</p>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">skinparam</span> <span class="n">handwritten</span> <span class="nb">true</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>docker run -u `id -u $USER`:`id -g $USER` -i --rm -v $(pwd):/home/documentation -t  docdac:ubuntu-1.0 java -jar /usr/share/plantuml/plantuml.jar -Idocs/plantuml/plantuml_cfg.puml -Idocs/plantuml/plantuml_handwritten.puml  docs/plantuml/examples/*.puml -o handwritten/
+</pre></div>
+</div>
+<p>This givens a handwritten wavy effect to diagrams e.g.</p>
+<div class="section" id="draft-sequence">
+<h3>Draft Sequence<a class="headerlink" href="#draft-sequence" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="id10">
+<p class="plantuml">
+<img src="_images/plantuml-b4901cad287a79aa4e1d95da289ff7699ee66d07.png" alt="' https://real-world-plantuml.com/umls/4606798564687872
+
+
+&#64;startuml
+skinparam handwritten true
+
+autonumber
+
+    participant &quot;app: Application&quot; as app
+    participant &quot;cm: ContentManager&quot; as cm
+    participant &quot;item: DownloadItem&quot; as item
+    
+    activate app
+    activate cm
+    
+    note over app: User enters media info page
+    
+    note over app: Check if item exists
+    app-&gt;cm: findItem(itemId)
+    cm-&gt;cm: lookup(itemId)
+    
+    alt item found
+        cm--&gt;app: item
+    else not found
+        cm--&gt;app: null
+        app-&gt;cm: createItem(itemId, contentURL)
+        cm-&gt;item: new(itemId, contentURL)
+        activate item
+        cm--&gt;app: item
+    
+        app-&gt;cm: loadMetadata()
+        note over cm
+            Download and parse manifest, save in db
+        end note
+        cm--&gt;app: onTracksAvailable
+        cm--&gt;app: onDownloadMetadata
+        note over app: * See //track-selection// flow
+    end group
+    
+    note over app: app is ready to start downloading
+    app-&gt;item: startDownload()
+    
+    
+    &#64;enduml"/>
+</p>
+<p class="caption"><span class="caption-text"><em>Sequence Diagram Draft</em></span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&#39; https://real-world-plantuml.com/umls/4606798564687872
+
+
+@startuml
+skinparam handwritten true
+
+autonumber
+
+    participant &quot;app: Application&quot; as app
+    participant &quot;cm: ContentManager&quot; as cm
+    participant &quot;item: DownloadItem&quot; as item
+    
+    activate app
+    activate cm
+    
+    note over app: User enters media info page
+    
+    note over app: Check if item exists
+    app-&gt;cm: findItem(itemId)
+    cm-&gt;cm: lookup(itemId)
+    
+    alt item found
+        cm--&gt;app: item
+    else not found
+        cm--&gt;app: null
+        app-&gt;cm: createItem(itemId, contentURL)
+        cm-&gt;item: new(itemId, contentURL)
+        activate item
+        cm--&gt;app: item
+    
+        app-&gt;cm: loadMetadata()
+        note over cm
+            Download and parse manifest, save in db
+        end note
+        cm--&gt;app: onTracksAvailable
+        cm--&gt;app: onDownloadMetadata
+        note over app: * See //track-selection// flow
+    end group
+    
+    note over app: app is ready to start downloading
+    app-&gt;item: startDownload()
+    
+    
+    @enduml
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="draft-state">
+<h3>Draft State<a class="headerlink" href="#draft-state" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="id11">
+<p class="plantuml">
+<img src="_images/plantuml-abc42eda9030a76e9e8f28f9dee1b7197a9523af.png" alt="' https://real-world-plantuml.com/umls/4724780511002624
+
+&#64;startuml
+skinparam handwritten true
+
+title performing I/O
+
+[*] --&gt; Client
+Client: Process uri in Client
+
+Client -&gt; Server : uri-data
+state Server {
+  [*] -&gt; monitor
+  monitor: Server starts monitoring
+  monitor: Stops at end of Server life
+}
+
+Client -&gt; Database: Client
+Database: database operations
+
+state runcommand {
+  Database -&gt; command: Database
+  command -&gt; find: query
+  command: send command to server
+
+  monitor -&gt; select: server-data
+
+  find --&gt; select
+  select: select process to find proper server
+  select --&gt; find: Server
+
+  find --&gt; query: server
+  query: encodes query and send to server
+  query: decodes result
+  query --&gt; find: result
+
+}
+
+find -&gt; Cursor: cursor-data
+Cursor: stores docs
+Cursor: retrieves new docs
+
+Cursor -&gt; fetch: document
+fetch --&gt; getmore
+getmore: encodes query and send to server
+getmore: decodes result
+getmore --&gt; fetch: new-documents
+
+
+fetch -&gt; [*]
+&#64;enduml"/>
+</p>
+<p class="caption"><span class="caption-text"><em>State Diagram Draft</em></span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&#39; https://real-world-plantuml.com/umls/4724780511002624
+
+@startuml
+skinparam handwritten true
+
+title performing I/O
+
+[*] --&gt; Client
+Client: Process uri in Client
+
+Client -&gt; Server : uri-data
+state Server {
+  [*] -&gt; monitor
+  monitor: Server starts monitoring
+  monitor: Stops at end of Server life
+}
+
+Client -&gt; Database: Client
+Database: database operations
+
+state runcommand {
+  Database -&gt; command: Database
+  command -&gt; find: query
+  command: send command to server
+
+  monitor -&gt; select: server-data
+
+  find --&gt; select
+  select: select process to find proper server
+  select --&gt; find: Server
+
+  find --&gt; query: server
+  query: encodes query and send to server
+  query: decodes result
+  query --&gt; find: result
+
+}
+
+find -&gt; Cursor: cursor-data
+Cursor: stores docs
+Cursor: retrieves new docs
+
+Cursor -&gt; fetch: document
+fetch --&gt; getmore
+getmore: encodes query and send to server
+getmore: decodes result
+getmore --&gt; fetch: new-documents
+
+
+fetch -&gt; [*]
+@enduml
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="vscode-plantuml-extension">
+<h2>VSCode PlantUML Extension<a class="headerlink" href="#vscode-plantuml-extension" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml">VSCode Plantuml Extension</a> makes it easy to create and edit plantuml diagrams. It includes a real-time preview within VSCode.</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="http://plantuml.com/">http://plantuml.com/</a> homepage</p></li>
+<li><p><a class="reference external" href="http://plantuml.com/command-line">http://plantuml.com/command-line</a></p></li>
+<li><p><a class="reference external" href="https://real-world-plantuml.com/umls/4619683198140416">real-world-plantuml.com</a> shows many examples of PlantUML diagrams.</p></li>
+<li><p><a class="reference external" href="https://www.planttext.com/">https://www.planttext.com/</a> free online site where you can copyNpaste the text description to auto-generate a diagram</p></li>
+<li><p><a class="reference external" href="https://www.websequencediagrams.com/">https://www.websequencediagrams.com/</a> free online site where you can copyNpaste the text description to auto-generate a diagram</p></li>
+</ol>
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<p>DFD diagram template</p>
+<p>Attack tree templates</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="plantuml_sprites.html" class="btn btn-neutral float-right" title="Plantuml Sprites" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="xref.html" class="btn btn-neutral float-left" title="Cross-Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Crashedmind
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PlantUML Server &mdash; DOCDAC  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="C4 Lightweight Software Architecture Description Method" href="c4.html" />
+    <link rel="prev" title="Plantuml Sprites" href="plantuml_sprites.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> DOCDAC
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Document and Reference C/C++ Code</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Documentation of Code - Documentation as Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/library_root.html">Library API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xref.html">Cross-Reference</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Create Diagrams with Plantuml</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="plantuml.html">PlantUML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plantuml_sprites.html">Plantuml Sprites</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PlantUML Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#encoding-url-for-plantuml-server-for-source-and-diagram">Encoding URL for PlantUML Server for source and diagram</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="c4.html">C4 Lightweight Software Architecture Description Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plantuml_c4.html">PlantUML C4</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Confluence</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="confluence.html">Confluence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="confluence_plantuml.html">Confluence and PlantUML</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">To Do List</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DOCDAC</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>PlantUML Server</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/plantuml_server.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="plantuml-server">
+<h1>PlantUML Server<a class="headerlink" href="#plantuml-server" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="encoding-url-for-plantuml-server-for-source-and-diagram">
+<h2>Encoding URL for PlantUML Server for source and diagram<a class="headerlink" href="#encoding-url-for-plantuml-server-for-source-and-diagram" title="Permalink to this headline">¶</a></h2>
+<p>A PlantUML server generates the output image from input PlantUML source code.</p>
+<p>It is possible to setup your own server (docker images available).</p>
+<p>Here we will use the public plantuml server <a class="reference external" href="http://www.plantuml.com/plantuml">http://www.plantuml.com/plantuml</a> where we can enter our PlantUML source code.</p>
+<p>We will use our <a class="reference internal" href="plantuml_c4.html#context"><span class="std std-ref">Context</span></a> diagram source as an example.</p>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre></div></td><td class="code"><div class="highlight"><pre><span></span>@startuml
+!include &lt;c4/C4_Context.puml&gt;  
+
+&#39;ref http://plantuml.com/stdlib
+!include &lt;office/Users/user.puml&gt;
+!include &lt;office/Users/mobile_user.puml&gt;
+
+&#39;LAYOUT_TOP_DOWN
+&#39;LAYOUT_AS_SKETCH()
+LAYOUT_WITH_LEGEND()
+
+title System Landscape diagram for Big Bank plc
+
+Person(customer  , Customer , &quot;&lt;$user&gt; &lt;$mobile_user&gt;\n A customer of the bank, with personal bank accounts&quot; )
+
+Enterprise_Boundary(c0, &quot;Big Bank plc&quot;) {
+    System(banking_system, &quot;Internet Banking System&quot;, &quot;Allows customers to view information about their bank accounts, and make payments.&quot;)
+
+    System_Ext(atm, &quot;ATM&quot;, &quot;Allows customers to withdraw cash.&quot;)
+    System_Ext(mail_system, &quot;E-mail system&quot;, &quot;The internal Microsoft Exchange e-mail system.&quot;)
+
+    System_Ext(mainframe, &quot;Mainframe Banking System&quot;, &quot;Stores all of the core banking information about customers, accounts, transactions, etc.&quot;)
+
+    Person_Ext(customer_service, &quot;Customer Service Staff&quot;, &quot;Customer service staff within the bank.&quot;)
+    Person_Ext(back_office, &quot;Back Office Staff&quot;, &quot;Administration and support staff within the bank.&quot;)
+}
+
+Rel_Neighbor(customer, banking_system, &quot;Uses&quot;)
+Rel_R(customer, atm, &quot;Withdraws cash using&quot;)
+Rel_Back(customer, mail_system, &quot;Sends e-mails to&quot;)
+
+Rel_R(customer, customer_service, &quot;Asks questions to&quot;, &quot;Telephone&quot;)
+
+Rel_D(banking_system, mail_system, &quot;Sends e-mail using&quot;)
+Rel_R(atm, mainframe, &quot;Uses&quot;)
+Rel_R(banking_system, mainframe, &quot;Uses&quot;)
+Rel_D(customer_service, mainframe, &quot;Uses&quot;)
+Rel_U(back_office, mainframe, &quot;Uses&quot;)
+
+Lay_D(atm, banking_system)
+
+Lay_D(atm, customer)
+Lay_U(mail_system, customer)
+@enduml
+</pre></div>
+</td></tr></table></div>
+<p>The input PlantUML source code and output image can be encoded as URLs:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="http://www.plantuml.com/plantuml/uml/TLL1R-8y4BtdLyo7AXKalhA7dbPLLGfeMoqjLGEgLbefCiw4M3XsrkEKejN-zxL3o9e25nJFl9bvR_mixiWoOwj2Hly9nMML8jpmwy7eEXbfPV73NfKkUGiGHPS6CyYjBRyE1gLaobTTSLqCoAPIB8C6Eii4ny62qD2WSh-x9kSGXLuAYKa0Z2wdmn-pnJoPprwIyUpjkGqCuoJ-FfcF7hgzg0czFSuVakdas-Hvx8AH5LOYn5koMC2KgPGuAn5ImLQ65P1f0_TY1VTChQ6KF8fU70UjkhmYgmiq07qOxR_xqBcvyCHkuUOYu7dxKy4GsXATWSqHbgvd7pR2vb3MJPciOy0urvMor057SA8icj88mkJUHLDcjbt-nKqAQNLwy3i2W4P8rxSHQfLGVNJWHzz5eVKLFjC0Eourb59lg6L7O3My2zo0K4vzmQpG2jXILzQp5kQGOn_Spg1WQuIIRGjqeQjEBmh899CFssMsyAFcJ-Sc-ZMaXcs0CyfTXyyD2YRaFpcJ__qPg1Knpn54hP59U1BSQDAPXSa7pvbQ8M1OS8gWIwlCi09TiwVzzubjnLOR961Ixg-Hkm0q2p-nirPbFzYPDKmHunxcJcXvIsbdhvhIlZ8XDE-2UsQjq-9T26BBigmJPXemaC_KQnMgjPiRytdAal5ridjWtbJk13Dt2diFqq8eGTOqkbGAL9MbDlRyb3zHz8eoUKQnofVQj6BwSEJD1I6v2Wz_3N0xoxmrlg3Q652HAst0dck0FtH8Z2gbvjgzmLpDqOGJ2nxIck1NXUILrdNUN2YnpBN2VPFnqGCxFpoaxARNgaApXUgFsvu6Ze-zSGww22xuD2gQicqotX4xd7-Osu_irS55-2B3v9tJxlyW_W80">Input UML source code URL</a> :</p></li>
+</ol>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="nl">http</span><span class="p">:</span><span class="c1">//www.plantuml.com/plantuml/uml/TLL1R-8y4BtdLyo7AXKalhA7dbPLLGfeMoqjLGEgLbefCiw4M3XsrkEKejN-zxL3o9e25nJFl9bvR_mixiWoOwj2Hly9nMML8jpmwy7eEXbfPV73NfKkUGiGHPS6CyYjBRyE1gLaobTTSLqCoAPIB8C6Eii4ny62qD2WSh-x9kSGXLuAYKa0Z2wdmn-pnJoPprwIyUpjkGqCuoJ-FfcF7hgzg0czFSuVakdas-Hvx8AH5LOYn5koMC2KgPGuAn5ImLQ65P1f0_TY1VTChQ6KF8fU70UjkhmYgmiq07qOxR_xqBcvyCHkuUOYu7dxKy4GsXATWSqHbgvd7pR2vb3MJPciOy0urvMor057SA8icj88mkJUHLDcjbt-nKqAQNLwy3i2W4P8rxSHQfLGVNJWHzz5eVKLFjC0Eourb59lg6L7O3My2zo0K4vzmQpG2jXILzQp5kQGOn_Spg1WQuIIRGjqeQjEBmh899CFssMsyAFcJ-Sc-ZMaXcs0CyfTXyyD2YRaFpcJ__qPg1Knpn54hP59U1BSQDAPXSa7pvbQ8M1OS8gWIwlCi09TiwVzzubjnLOR961Ixg-Hkm0q2p-nirPbFzYPDKmHunxcJcXvIsbdhvhIlZ8XDE-2UsQjq-9T26BBigmJPXemaC_KQnMgjPiRytdAal5ridjWtbJk13Dt2diFqq8eGTOqkbGAL9MbDlRyb3zHz8eoUKQnofVQj6BwSEJD1I6v2Wz_3N0xoxmrlg3Q652HAst0dck0FtH8Z2gbvjgzmLpDqOGJ2nxIck1NXUILrdNUN2YnpBN2VPFnqGCxFpoaxARNgaApXUgFsvu6Ze-zSGww22xuD2gQicqotX4xd7-Osu_irS55-2B3v9tJxlyW_W80</span>
+</pre></div>
+</div>
+<p>where this URL can be generated by</p>
+<ul class="simple">
+<li><p>copyNpasting the source code into <a class="reference external" href="http://www.plantuml.com/plantuml">http://www.plantuml.com/plantuml</a> server uml window</p></li>
+<li><p>plantuml running locally</p></li>
+</ul>
+<p>This URL contains the encoded PlantUML diagram source code.</p>
+<ol class="arabic simple" start="2">
+<li><p><a class="reference external" href="http://www.plantuml.com/plantuml/uml/TLL1R-8y4BtdLyo7AXKalhA7dbPLLGfeMoqjLGEgLbefCiw4M3XsrkEKejN-zxL3o9e25nJFl9bvR_mixiWoOwj2Hly9nMML8jpmwy7eEXbfPV73NfKkUGiGHPS6CyYjBRyE1gLaobTTSLqCoAPIB8C6Eii4ny62qD2WSh-x9kSGXLuAYKa0Z2wdmn-pnJoPprwIyUpjkGqCuoJ-FfcF7hgzg0czFSuVakdas-Hvx8AH5LOYn5koMC2KgPGuAn5ImLQ65P1f0_TY1VTChQ6KF8fU70UjkhmYgmiq07qOxR_xqBcvyCHkuUOYu7dxKy4GsXATWSqHbgvd7pR2vb3MJPciOy0urvMor057SA8icj88mkJUHLDcjbt-nKqAQNLwy3i2W4P8rxSHQfLGVNJWHzz5eVKLFjC0Eourb59lg6L7O3My2zo0K4vzmQpG2jXILzQp5kQGOn_Spg1WQuIIRGjqeQjEBmh899CFssMsyAFcJ-Sc-ZMaXcs0CyfTXyyD2YRaFpcJ__qPg1Knpn54hP59U1BSQDAPXSa7pvbQ8M1OS8gWIwlCi09TiwVzzubjnLOR961Ixg-Hkm0q2p-nirPbFzYPDKmHunxcJcXvIsbdhvhIlZ8XDE-2UsQjq-9T26BBigmJPXemaC_KQnMgjPiRytdAal5ridjWtbJk13Dt2diFqq8eGTOqkbGAL9MbDlRyb3zHz8eoUKQnofVQj6BwSEJD1I6v2Wz_3N0xoxmrlg3Q652HAst0dck0FtH8Z2gbvjgzmLpDqOGJ2nxIck1NXUILrdNUN2YnpBN2VPFnqGCxFpoaxARNgaApXUgFsvu6Ze-zSGww22xuD2gQicqotX4xd7-Osu_irS55-2B3v9tJxlyW_W80">Output Png Image</a> :</p></li>
+</ol>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="nl">http</span><span class="p">:</span><span class="c1">//www.plantuml.com/plantuml/png/TLL1R-8y4BtdLyo7AXKalhA7dbPLLGfeMoqjLGEgLbefCiw4M3XsrkEKejN-zxL3o9e25nJFl9bvR_mixiWoOwj2Hly9nMML8jpmwy7eEXbfPV73NfKkUGiGHPS6CyYjBRyE1gLaobTTSLqCoAPIB8C6Eii4ny62qD2WSh-x9kSGXLuAYKa0Z2wdmn-pnJoPprwIyUpjkGqCuoJ-FfcF7hgzg0czFSuVakdas-Hvx8AH5LOYn5koMC2KgPGuAn5ImLQ65P1f0_TY1VTChQ6KF8fU70UjkhmYgmiq07qOxR_xqBcvyCHkuUOYu7dxKy4GsXATWSqHbgvd7pR2vb3MJPciOy0urvMor057SA8icj88mkJUHLDcjbt-nKqAQNLwy3i2W4P8rxSHQfLGVNJWHzz5eVKLFjC0Eourb59lg6L7O3My2zo0K4vzmQpG2jXILzQp5kQGOn_Spg1WQuIIRGjqeQjEBmh899CFssMsyAFcJ-Sc-ZMaXcs0CyfTXyyD2YRaFpcJ__qPg1Knpn54hP59U1BSQDAPXSa7pvbQ8M1OS8gWIwlCi09TiwVzzubjnLOR961Ixg-Hkm0q2p-nirPbFzYPDKmHunxcJcXvIsbdhvhIlZ8XDE-2UsQjq-9T26BBigmJPXemaC_KQnMgjPiRytdAal5ridjWtbJk13Dt2diFqq8eGTOqkbGAL9MbDlRyb3zHz8eoUKQnofVQj6BwSEJD1I6v2Wz_3N0xoxmrlg3Q652HAst0dck0FtH8Z2gbvjgzmLpDqOGJ2nxIck1NXUILrdNUN2YnpBN2VPFnqGCxFpoaxARNgaApXUgFsvu6Ze-zSGww22xuD2gQicqotX4xd7-Osu_irS55-2B3v9tJxlyW_W80</span>
+</pre></div>
+</div>
+<p>where <a class="reference external" href="http://www.plantuml.com/plantuml/">http://www.plantuml.com/plantuml/</a><strong>uml</strong>/… changes to <a class="reference external" href="http://www.plantuml.com/plantuml/">http://www.plantuml.com/plantuml/</a><strong>png</strong>/…</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="c4.html" class="btn btn-neutral float-right" title="C4 Lightweight Software Architecture Description Method" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="plantuml_sprites.html" class="btn btn-neutral float-left" title="Plantuml Sprites" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Crashedmind
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

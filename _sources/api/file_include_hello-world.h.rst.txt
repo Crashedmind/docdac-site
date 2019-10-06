@@ -1,0 +1,52 @@
+
+.. _file_include_hello-world.h:
+
+File hello-world.h
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir_include>` (``include``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/hello-world.h``)
+--------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_hello-world.h.rst
+
+
+
+
+
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structHellomessage`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_hello-world_8h_1ad1ef9bc197682dbf5de414327d2b2a26`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_hello-world_8h_1af9c736a4244b27d26aa8a69f989eb8da`
+

@@ -1,0 +1,15 @@
+Google Charts
+--------------------------------
+
+.. piechart::
+
+   dog: 100
+   cat: 80
+   rabbit: 40
+
+.. piechart3d::
+   :size: 480x240
+
+   dog: 100
+   cat: 80
+   rabbit: 40
