@@ -27,9 +27,12 @@ See `example test output <https://jdknight.atlassian.net/wiki/spaces/confluenceb
 
 .. youtube:: http://www.youtube.com/watch?v=aB5N1KXlafs
 
+Authentication for Confluence Cloud and Confluence Server may be different.
 
-Atlassian token
+
+Confluence Cloud
 --------------------------------
+
 For Confluence Cloud, an api token can used for the password in ``conf.py`` 
 
 .. code ::
@@ -38,6 +41,46 @@ For Confluence Cloud, an api token can used for the password in ``conf.py``
 
 An API token can be obtained for your cloud hosted Confluence site from https://id.atlassian.com/manage/api-tokens.
 
+
+Confluence Server
+--------------------------------
+
+ref `confluence_server_url <https://sphinxcontrib-confluencebuilder.readthedocs.io/en/latest/configuration.html#confluence-server-url>`_, 
+
+.. code ::
+
+    confluence_publish = True
+    confluence_space_name = 'docdac'
+    #confluence_parent_page = 'overview'
+    confluence_server_url = 'https://confluence.company.com'
+    confluence_server_user = 'user'
+    # confluence_server_pass = 'password'
+    confluence_ask_password = True
+
+
+Sanity check with curl
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+ref https://developer.atlassian.com/server/confluence/confluence-rest-api-examples/
+
+
+.. code ::
+
+    curl -u user:password https://confluence.company.com:8443/rest/api/content/  | python -m json.tool
+
+    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+    100 17072    0 17072    0     0  11971      0 --:--:--  0:00:01 --:--:-- 11963
+    {
+        "_links": {
+            "base": "https://confluence.company.com:8443",
+            "context": "",
+            "next": "/rest/api/content/?limit=25&start=25",
+            "self": "https://confluence.company.com:8443/rest/api/content/"
+        },
+        "limit": 25,
+
+    curl -u user:password https://confluence.company.com:8443/display/docdac/rest/api/content/  
 
 
 Import from Confluence

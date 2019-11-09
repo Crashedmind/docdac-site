@@ -147,6 +147,10 @@
 <li class="toctree-l1"><a class="reference internal" href="confluence.html">Confluence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="confluence_plantuml.html">Confluence and PlantUML</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Github</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="github.html">Github</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Other Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="todo.html">To Do List</a></li>
@@ -342,7 +346,7 @@
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-center" id="id5">
 <p class="plantuml">
-<img src="_images/plantuml-550e8bc8025025879e22fec07f508900ce0abbca.png" alt="&#64;startuml
+<img src="_images/plantuml-9756041636d1f4d0b18d2aca8e135725a0516813.png" alt="&#64;startuml
     !include &lt;c4/C4_Context.puml&gt; 
     !include &lt;office/Concepts/learn.puml&gt;
     !include &lt;office/Concepts/documents.puml&gt;
@@ -361,7 +365,7 @@
 
     System_Ext(source_comments, &quot;Source Comments&quot;, &quot;c, cpp \n  h, hpp&quot;)    
     System_Ext(Images, &quot;Images&quot;, &quot;png, jpg, svg,...&quot;)
-    System_Ext(ADK_documentation, &quot;ADK documentation&quot;, &quot;e.g. Programmers guide&quot;)    
+    System_Ext(ADK_documentation, &quot;SDK documentation&quot;, &quot;e.g. Programmers guide&quot;)    
     
 
     System(plantuml_source, &quot;Plantuml Source&quot;, &quot;Inline in *.rst \n Separate as *.puml&quot;)    
@@ -508,7 +512,7 @@
 </div>
 <div class="section" id="get-toolset">
 <h3>Get Toolset<a class="headerlink" href="#get-toolset" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone ssh://git@bitbucket.verifone.com:7999/~chris_m11/docdac.git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone ssh://git@bitbucket.MyCompany.com:7999/~chris_m11/docdac.git
 <span class="nb">cd</span> ./docdac
 </pre></div>
 </div>
@@ -600,7 +604,7 @@
 43</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll">FROM ubuntu:latest
 </span>
 
-# MAINTAINER=&quot;Chris_m11&quot;
+# MAINTAINER=&quot;Crashedmind&quot;
 
 
 RUN mkdir -p /usr/share/man/man1 \ 
@@ -717,7 +721,8 @@ docker run -u `id -u $USER`:`id -g $USER` -i --rm -v $(pwd):/home/documentation 
 <h3>Configure Sphinx conf.py<a class="headerlink" href="#configure-sphinx-conf-py" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>svg format is used for images because it supports embedding hyperlinks.</p>
+<p>PlantUML better supports PNG than SVG (as in some of my SVG diagrams turned out weird whereas in PNG they were fine).
+I was originally thinking to default to SVG because it supports embedding hyperlinks.</p>
 </div>
 <p>conf.py source</p>
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
@@ -841,7 +846,20 @@ docker run -u `id -u $USER`:`id -g $USER` -i --rm -v $(pwd):/home/documentation 
 119
 120
 121
-122</pre></div></td><td class="code"><div class="highlight"><pre><span></span># Configuration file for the Sphinx documentation builder.
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135</pre></div></td><td class="code"><div class="highlight"><pre><span></span># Configuration file for the Sphinx documentation builder.
 #
 # This file only contains a selection of the most common options. For a full
 # list see the documentation:
@@ -917,33 +935,46 @@ graphviz_output_format = &#39;svg&#39;
 
 # 
 confluence_publish = True
-confluence_space_name = &#39;DOCDAC&#39;
+confluence_space_name = &#39;docdac&#39;
 # (for confluence cloud)
-confluence_server_url = &#39;https://confluence.verifone.com&#39;
-confluence_server_user = &#39;myuser&#39;
-confluence_server_pass = &#39;mypassword&#39;
+#confluence_server_url = &#39;https://confluence.verifone.com&#39;
+#confluence_server_url = &#39;https://confluence.verifone.com:8443&#39;
+#confluence_server_url = &#39;https://confluence.verifone.com:8443/&#39;
+#confluence_server_url = &#39;http://confluence.verifone.com&#39;
+# confluence_server_url = &#39;https://confluence.company.com:8443/display&#39;
+confluence_server_url = &#39;https://confluence.verifone.com:8443/display/docdac&#39;
 
+#  curl -u user:password https://confluence.verifone.com:8443/display/docdac &gt; ~/tmp.html works to read/browse page
 
-# Add any paths that contain templates here, relative to this directory.
-templates_path = [&#39;_templates&#39;]
+# confluence_proxy = &#39;https://confluence.verifone.com:8443/&#39;
 
-# List of patterns, relative to source directory, that match files and
-# directories to ignore when looking for source files.
-# This pattern also affects html_static_path and html_extra_path.
-<span class="hll">exclude_patterns = [&#39;_build&#39;, &#39;Thumbs.db&#39;, &#39;.DS_Store&#39;]
-</span><span class="hll">
-</span><span class="hll">
-</span><span class="hll"># -- Options for HTML output -------------------------------------------------
-</span><span class="hll">
-</span><span class="hll"># The theme to use for HTML and HTML Help pages.  See the documentation for
-</span><span class="hll"># a list of builtin themes.
-</span>#
-html_theme = &#39;sphinx_rtd_theme&#39;
 <span class="hll">
-</span># Add any paths that contain custom static files (such as style sheets) here,
+</span><span class="hll">confluence_server_user = &#39;chris_m11&#39;
+</span><span class="hll"># confluence_server_pass = &#39;password&#39;
+</span><span class="hll">confluence_ask_password = True
+</span><span class="hll">
+</span><span class="hll">
+</span><span class="hll">
+</span># Add any paths that contain templates here, relative to this directory.
+templates_path = [&#39;_templates&#39;]
+<span class="hll">
+</span># List of patterns, relative to source directory, that match files and
+# directories to ignore when looking for source files.
+<span class="hll"># This pattern also affects html_static_path and html_extra_path.
+</span>exclude_patterns = [&#39;_build&#39;, &#39;Thumbs.db&#39;, &#39;.DS_Store&#39;]
+
+
+# -- Options for HTML output -------------------------------------------------
+
+# The theme to use for HTML and HTML Help pages.  See the documentation for
+# a list of builtin themes.
+#
+html_theme = &#39;sphinx_rtd_theme&#39;
+
+# Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
-<span class="hll"># so a file named &quot;default.css&quot; will overwrite the builtin &quot;default.css&quot;.
-</span>html_static_path = [&#39;_static&#39;]
+# so a file named &quot;default.css&quot; will overwrite the builtin &quot;default.css&quot;.
+html_static_path = [&#39;_static&#39;]
 
 
 # This fixes ReadTheDocs Theme Bug where table text does not auto wrap for long lines.
@@ -1086,7 +1117,13 @@ todo_include_todos = True
 66
 67
 68
-69</pre></div></td><td class="code"><div class="highlight"><pre><span></span>Welcome to DOCDAC&#39;s documentation!
+69
+70
+71
+72
+73
+74
+75</pre></div></td><td class="code"><div class="highlight"><pre><span></span>Welcome to DOCDAC&#39;s documentation!
 =======================================
 
     *Documentation-Of-Code Documentation-As-Code*
@@ -1097,7 +1134,7 @@ todo_include_todos = True
 
     .. code-block:: bash
 
-        git clone ssh://git@bitbucket.verifone.com:7999/~chris_m11/docdac.git #get the documentation and toolset (Dockerfile) source text files
+        git clone git@github.com:Crashedmind/docdac.git #get the documentation and toolset (Dockerfile) source text files
         cd ./docdac
         ./docker_build.sh # build toolset form Docker file 
         ./sphinx_build.sh # build this html guide using the toolset 
@@ -1139,6 +1176,12 @@ todo_include_todos = True
    
    confluence
    confluence_plantuml
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Github
+
+   github
 
 .. toctree::
    :maxdepth: 2
@@ -1191,8 +1234,8 @@ docker run -u `id -u $USER`:`id -g $USER` -i  --rm -v $(pwd):/home/documentation
 This section is shown here if someone wants to build DoxyGen only using toolset.</p>
 <div class="section" id="get-source-code">
 <h3>Get Source Code<a class="headerlink" href="#get-source-code" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="nl">ssh</span><span class="p">:</span><span class="c1">//git@bitbucket.verifone.com:7999/trin/trinity-vfc-deliverables.git</span>
-<span class="n">cd</span> <span class="p">.</span><span class="o">/</span><span class="n">trinity</span><span class="o">-</span><span class="n">vfc</span><span class="o">-</span><span class="n">deliverables</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:Crashedmind/docdac.git #get the documentation and toolset (Dockerfile) source text files
+cd ./docdac
 </pre></div>
 </div>
 </div>
@@ -1213,7 +1256,7 @@ docker run --user $(id -u):$(id -g) -i  -v $(pwd):/home/documentation/ -t docdac
 </div>
 <p>Configure Doxyfile.
 Only minimal changes shown for illustration purposes.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">PROJECT_NAME</span>           <span class="o">=</span> <span class="s">&quot;Trinity VFC Deliverables&quot;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">PROJECT_NAME</span>           <span class="o">=</span> <span class="s">&quot;MyProject&quot;</span>
 <span class="p">...</span>
 <span class="n">INPUT</span> <span class="o">=</span> <span class="p">..</span><span class="o">/</span><span class="n">include</span>
 </pre></div>

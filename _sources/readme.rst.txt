@@ -187,7 +187,7 @@ Get Toolset
 ---------------
 .. code-block:: bash
 
-    git clone ssh://git@bitbucket.verifone.com:7999/~chris_m11/docdac.git
+    git clone ssh://git@bitbucket.MyCompany.com:7999/~chris_m11/docdac.git
     cd ./docdac
 
 
@@ -282,7 +282,9 @@ Transpile DoxyGen Output to Sphinx and add other Documentation
 Configure Sphinx conf.py
 -----------------------------
 .. note ::
-    svg format is used for images because it supports embedding hyperlinks.
+    
+    PlantUML better supports PNG than SVG (as in some of my SVG diagrams turned out weird whereas in PNG they were fine).
+    I was originally thinking to default to SVG because it supports embedding hyperlinks.
 
 
 conf.py source
@@ -338,8 +340,8 @@ Get Source Code
 
 .. code-block:: 
 
-    git clone ssh://git@bitbucket.verifone.com:7999/trin/trinity-vfc-deliverables.git
-    cd ./trinity-vfc-deliverables
+    git clone git@github.com:Crashedmind/docdac.git #get the documentation and toolset (Dockerfile) source text files
+    cd ./docdac
 
 
 Create Doxygen Config File
@@ -367,7 +369,7 @@ Only minimal changes shown for illustration purposes.
 
 .. code-block:: 
 
-    PROJECT_NAME           = "Trinity VFC Deliverables"
+    PROJECT_NAME           = "MyProject"
     ...
     INPUT = ../include
     

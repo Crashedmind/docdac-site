@@ -102,7 +102,11 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Confluence</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#export-to-confluence">Export to Confluence</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#confluence-builder-for-sphinx">Confluence Builder for Sphinx</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#atlassian-token">Atlassian token</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#confluence-cloud">Confluence Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#confluence-server">Confluence Server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sanity-check-with-curl">Sanity check with curl</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#import-from-confluence">Import from Confluence</a><ul>
@@ -115,6 +119,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="confluence_plantuml.html">Confluence and PlantUML</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Github</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="github.html">Github</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Other Features</span></p>
 <ul>
@@ -199,14 +207,49 @@ But it is disconnected from the source code and other information in the source 
 <li><p>Enables a builder to publish to a Confluence instance.</p></li>
 </ol>
 <p>See <a class="reference external" href="https://jdknight.atlassian.net/wiki/spaces/confluencebuilder/pages/813170943/v1.1">example test output</a> and a demo video:</p>
-<iframe width="640" height="360" style="margin-bottom: 25px" src="https://www.youtube.com/embed/aB5N1KXlafs" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
-<div class="section" id="atlassian-token">
-<h3>Atlassian token<a class="headerlink" href="#atlassian-token" title="Permalink to this headline">¶</a></h3>
+<iframe width="640" height="360" style="margin-bottom: 25px" src="https://www.youtube.com/embed/aB5N1KXlafs" frameborder="0" allowfullscreen="1">&nbsp;</iframe><p>Authentication for Confluence Cloud and Confluence Server may be different.</p>
+</div>
+<div class="section" id="confluence-cloud">
+<h3>Confluence Cloud<a class="headerlink" href="#confluence-cloud" title="Permalink to this headline">¶</a></h3>
 <p>For Confluence Cloud, an api token can used for the password in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code></p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">confluence_server_pass</span> <span class="o">=</span> <span class="n">APITokenValue</span>
 </pre></div>
 </div>
 <p>An API token can be obtained for your cloud hosted Confluence site from <a class="reference external" href="https://id.atlassian.com/manage/api-tokens">https://id.atlassian.com/manage/api-tokens</a>.</p>
+</div>
+<div class="section" id="confluence-server">
+<h3>Confluence Server<a class="headerlink" href="#confluence-server" title="Permalink to this headline">¶</a></h3>
+<p>ref <a class="reference external" href="https://sphinxcontrib-confluencebuilder.readthedocs.io/en/latest/configuration.html#confluence-server-url">confluence_server_url</a>,</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>confluence_publish = True
+confluence_space_name = &#39;docdac&#39;
+#confluence_parent_page = &#39;overview&#39;
+confluence_server_url = &#39;https://confluence.company.com&#39;
+confluence_server_user = &#39;user&#39;
+# confluence_server_pass = &#39;password&#39;
+confluence_ask_password = True
+</pre></div>
+</div>
+<div class="section" id="sanity-check-with-curl">
+<h4>Sanity check with curl<a class="headerlink" href="#sanity-check-with-curl" title="Permalink to this headline">¶</a></h4>
+<p>ref <a class="reference external" href="https://developer.atlassian.com/server/confluence/confluence-rest-api-examples/">https://developer.atlassian.com/server/confluence/confluence-rest-api-examples/</a></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">u</span> <span class="nl">user</span><span class="p">:</span><span class="n">password</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//confluence.company.com:8443/rest/api/content/  | python -m json.tool</span>
+
+<span class="o">%</span> <span class="n">Total</span>    <span class="o">%</span> <span class="n">Received</span> <span class="o">%</span> <span class="n">Xferd</span>  <span class="n">Average</span> <span class="n">Speed</span>   <span class="n">Time</span>    <span class="n">Time</span>     <span class="n">Time</span>  <span class="n">Current</span>
+                             <span class="n">Dload</span>  <span class="n">Upload</span>   <span class="n">Total</span>   <span class="n">Spent</span>    <span class="n">Left</span>  <span class="n">Speed</span>
+<span class="mi">100</span> <span class="mi">17072</span>    <span class="mi">0</span> <span class="mi">17072</span>    <span class="mi">0</span>     <span class="mi">0</span>  <span class="mi">11971</span>      <span class="mi">0</span> <span class="o">--:--:--</span>  <span class="mi">0</span><span class="o">:</span><span class="mo">00</span><span class="o">:</span><span class="mo">01</span> <span class="o">--:--:--</span> <span class="mi">11963</span>
+<span class="p">{</span>
+    <span class="s">&quot;_links&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s">&quot;base&quot;</span><span class="o">:</span> <span class="s">&quot;https://confluence.company.com:8443&quot;</span><span class="p">,</span>
+        <span class="s">&quot;context&quot;</span><span class="o">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;next&quot;</span><span class="o">:</span> <span class="s">&quot;/rest/api/content/?limit=25&amp;start=25&quot;</span><span class="p">,</span>
+        <span class="s">&quot;self&quot;</span><span class="o">:</span> <span class="s">&quot;https://confluence.company.com:8443/rest/api/content/&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;limit&quot;</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
+
+<span class="n">curl</span> <span class="o">-</span><span class="n">u</span> <span class="nl">user</span><span class="p">:</span><span class="n">password</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//confluence.company.com:8443/display/docdac/rest/api/content/</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="import-from-confluence">

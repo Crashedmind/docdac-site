@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; DOCDAC  documentation</title>
+  <title>Github &mdash; DOCDAC  documentation</title>
   
 
   
@@ -27,7 +27,6 @@
         <script type="text/javascript" src="_static/language_data.js"></script>
         <script type="text/javascript" src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
         <script type="text/javascript" src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
-        <script type="text/javascript" src="_static/searchtools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -38,7 +37,9 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="To Do List" href="todo.html" />
+    <link rel="prev" title="Confluence and PlantUML" href="confluence_plantuml.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -65,7 +66,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -102,8 +103,13 @@
 <li class="toctree-l1"><a class="reference internal" href="confluence_plantuml.html">Confluence and PlantUML</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Github</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="github.html">Github</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Github</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sphinx-gallery-example">sphinx-gallery Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-site-recipe">Project Site Recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pushing-to-multiple-git-repos">Pushing to Multiple Git Repos</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Other Features</span></p>
 <ul>
@@ -153,12 +159,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Search</li>
+      <li>Github</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/github.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -170,24 +178,65 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="github">
+<h1>Github<a class="headerlink" href="#github" title="Permalink to this headline">¶</a></h1>
+<p>A website, documentation, or other information in github can be hosted on <a class="reference external" href="https://pages.github.com/">https://pages.github.com/</a>.</p>
+<p>See <a class="reference external" href="https://help.github.com/en/articles/about-github-pages">https://help.github.com/en/articles/about-github-pages</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Sphinx output HTML can be hosted on <a class="reference external" href="https://pages.github.com/">https://pages.github.com/</a>.</p>
+<p><a class="reference external" href="https://sphinx-gallery.github.io/index.html">https://sphinx-gallery.github.io/index.html</a> is a good example.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For Sphinx generated html to render, an empty file called <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> must be added to the root directory.</p>
+<p>This tells GitHub Pages not to run the published files through Jekyll. This is important since Jekyll will discard any files that begin with <code class="docutils literal notranslate"><span class="pre">_</span></code>.</p>
+<p>In the case of Sphinx, this would be the _images/  _sources/ _static/ directories!</p>
+</div>
+<div class="section" id="sphinx-gallery-example">
+<h2>sphinx-gallery Example<a class="headerlink" href="#sphinx-gallery-example" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://sphinx-gallery.github.io/index.html">https://sphinx-gallery.github.io/index.html</a> is an example of an organisation/user site:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the documentation source is <a class="reference external" href="https://github.com/sphinx-gallery/sphinx-gallery">https://github.com/sphinx-gallery/sphinx-gallery</a></p></li>
+<li><p>the Sphinx output html is in <a class="reference external" href="https://github.com/sphinx-gallery/sphinx-gallery.github.io">https://github.com/sphinx-gallery/sphinx-gallery.github.io</a></p></li>
+<li><p>when <a class="reference external" href="https://sphinx-gallery.github.io/index.html">https://sphinx-gallery.github.io/index.html</a> is viewed, the user sees the rendered html (from <a class="reference external" href="https://github.com/sphinx-gallery/sphinx-gallery.github.io">https://github.com/sphinx-gallery/sphinx-gallery.github.io</a>)</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="project-site-recipe">
+<h2>Project Site Recipe<a class="headerlink" href="#project-site-recipe" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Create project site as <a class="reference external" href="https://github.com/user">https://github.com/user</a>/&lt;repository&gt;</p></li>
+<li><p>Clone repo</p></li>
+<li><p>Add .nojekyll empty file in &lt;repository&gt;. If you don’t do this, the html content will be viewable but without the CSS.</p></li>
+<li><p>Build Sphinx html</p></li>
+<li><p>Add output docs/build/* content to repo</p></li>
+<li><p>Push repo to remote: git push -u origin master</p></li>
+<li><p>view site on <a class="reference external" href="http://user.github.io">http://user.github.io</a>/&lt;repository&gt;</p></li>
+</ol>
+</div>
+<div class="section" id="pushing-to-multiple-git-repos">
+<h2>Pushing to Multiple Git Repos<a class="headerlink" href="#pushing-to-multiple-git-repos" title="Permalink to this headline">¶</a></h2>
+<p>If a project needs to live in multiple remote repos e.g. Github, Bitbucket, then it is possible to push to these multiple repos at one time.</p>
+<p>See <a class="reference external" href="https://gist.github.com/rvl/c3f156e117e22a25f242">https://gist.github.com/rvl/c3f156e117e22a25f242</a></p>
+</div>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="todo.html" class="btn btn-neutral float-right" title="To Do List" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="confluence_plantuml.html" class="btn btn-neutral float-left" title="Confluence and PlantUML" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -220,14 +269,7 @@
   
   
     
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>

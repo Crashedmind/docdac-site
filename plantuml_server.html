@@ -94,7 +94,12 @@
 <li class="toctree-l1"><a class="reference internal" href="plantuml.html">PlantUML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plantuml_sprites.html">Plantuml Sprites</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">PlantUML Server</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#encoding-url-for-plantuml-server-for-source-and-diagram">Encoding URL for PlantUML Server for source and diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#encoding-url-for-plantuml-server-for-source-and-diagram">Encoding URL for PlantUML Server for source and diagram</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-diagram-source">Example Diagram Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diagram-source-encoded-as-url">Diagram Source Encoded as URL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#link-to-render-png-from-diagram-source-encoded-url">Link to Render PNG from Diagram Source Encoded URL</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="c4.html">C4 Lightweight Software Architecture Description Method</a></li>
@@ -104,6 +109,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="confluence.html">Confluence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="confluence_plantuml.html">Confluence and PlantUML</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Github</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="github.html">Github</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Other Features</span></p>
 <ul>
@@ -174,11 +183,17 @@
             
   <div class="section" id="plantuml-server">
 <h1>PlantUML Server<a class="headerlink" href="#plantuml-server" title="Permalink to this headline">¶</a></h1>
+<p>A <a class="reference external" href="http://plantuml.com/server">PlantUML server</a> generates an output image from input PlantUML source code.</p>
+<ul class="simple">
+<li><p>It is possible to setup your own server (<a class="reference external" href="https://hub.docker.com/r/plantuml/plantuml-server/">docker images available</a>).</p></li>
+<li><p>Here we will use the public plantuml server <a class="reference external" href="http://www.plantuml.com/plantuml">http://www.plantuml.com/plantuml</a></p></li>
+</ul>
+<p>We provide our PlantUML source code as input via a URL and get back a PNG/SVG image.</p>
+<p>Using a similar PlantUML Server, we can edit the PlantUML source code via a webbrowser.</p>
 <div class="section" id="encoding-url-for-plantuml-server-for-source-and-diagram">
 <h2>Encoding URL for PlantUML Server for source and diagram<a class="headerlink" href="#encoding-url-for-plantuml-server-for-source-and-diagram" title="Permalink to this headline">¶</a></h2>
-<p>A PlantUML server generates the output image from input PlantUML source code.</p>
-<p>It is possible to setup your own server (docker images available).</p>
-<p>Here we will use the public plantuml server <a class="reference external" href="http://www.plantuml.com/plantuml">http://www.plantuml.com/plantuml</a> where we can enter our PlantUML source code.</p>
+<div class="section" id="example-diagram-source">
+<h3>Example Diagram Source<a class="headerlink" href="#example-diagram-source" title="Permalink to this headline">¶</a></h3>
 <p>We will use our <a class="reference internal" href="plantuml_c4.html#context"><span class="std std-ref">Context</span></a> diagram source as an example.</p>
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -269,10 +284,11 @@ Lay_U(mail_system, customer)
 @enduml
 </pre></div>
 </td></tr></table></div>
+</div>
+<div class="section" id="diagram-source-encoded-as-url">
+<h3>Diagram Source Encoded as URL<a class="headerlink" href="#diagram-source-encoded-as-url" title="Permalink to this headline">¶</a></h3>
 <p>The input PlantUML source code and output image can be encoded as URLs:</p>
-<ol class="arabic simple">
-<li><p><a class="reference external" href="http://www.plantuml.com/plantuml/uml/TLL1R-8y4BtdLyo7AXKalhA7dbPLLGfeMoqjLGEgLbefCiw4M3XsrkEKejN-zxL3o9e25nJFl9bvR_mixiWoOwj2Hly9nMML8jpmwy7eEXbfPV73NfKkUGiGHPS6CyYjBRyE1gLaobTTSLqCoAPIB8C6Eii4ny62qD2WSh-x9kSGXLuAYKa0Z2wdmn-pnJoPprwIyUpjkGqCuoJ-FfcF7hgzg0czFSuVakdas-Hvx8AH5LOYn5koMC2KgPGuAn5ImLQ65P1f0_TY1VTChQ6KF8fU70UjkhmYgmiq07qOxR_xqBcvyCHkuUOYu7dxKy4GsXATWSqHbgvd7pR2vb3MJPciOy0urvMor057SA8icj88mkJUHLDcjbt-nKqAQNLwy3i2W4P8rxSHQfLGVNJWHzz5eVKLFjC0Eourb59lg6L7O3My2zo0K4vzmQpG2jXILzQp5kQGOn_Spg1WQuIIRGjqeQjEBmh899CFssMsyAFcJ-Sc-ZMaXcs0CyfTXyyD2YRaFpcJ__qPg1Knpn54hP59U1BSQDAPXSa7pvbQ8M1OS8gWIwlCi09TiwVzzubjnLOR961Ixg-Hkm0q2p-nirPbFzYPDKmHunxcJcXvIsbdhvhIlZ8XDE-2UsQjq-9T26BBigmJPXemaC_KQnMgjPiRytdAal5ridjWtbJk13Dt2diFqq8eGTOqkbGAL9MbDlRyb3zHz8eoUKQnofVQj6BwSEJD1I6v2Wz_3N0xoxmrlg3Q652HAst0dck0FtH8Z2gbvjgzmLpDqOGJ2nxIck1NXUILrdNUN2YnpBN2VPFnqGCxFpoaxARNgaApXUgFsvu6Ze-zSGww22xuD2gQicqotX4xd7-Osu_irS55-2B3v9tJxlyW_W80">Input UML source code URL</a> :</p></li>
-</ol>
+<p><a class="reference external" href="http://www.plantuml.com/plantuml/uml/TLL1R-8y4BtdLyo7AXKalhA7dbPLLGfeMoqjLGEgLbefCiw4M3XsrkEKejN-zxL3o9e25nJFl9bvR_mixiWoOwj2Hly9nMML8jpmwy7eEXbfPV73NfKkUGiGHPS6CyYjBRyE1gLaobTTSLqCoAPIB8C6Eii4ny62qD2WSh-x9kSGXLuAYKa0Z2wdmn-pnJoPprwIyUpjkGqCuoJ-FfcF7hgzg0czFSuVakdas-Hvx8AH5LOYn5koMC2KgPGuAn5ImLQ65P1f0_TY1VTChQ6KF8fU70UjkhmYgmiq07qOxR_xqBcvyCHkuUOYu7dxKy4GsXATWSqHbgvd7pR2vb3MJPciOy0urvMor057SA8icj88mkJUHLDcjbt-nKqAQNLwy3i2W4P8rxSHQfLGVNJWHzz5eVKLFjC0Eourb59lg6L7O3My2zo0K4vzmQpG2jXILzQp5kQGOn_Spg1WQuIIRGjqeQjEBmh899CFssMsyAFcJ-Sc-ZMaXcs0CyfTXyyD2YRaFpcJ__qPg1Knpn54hP59U1BSQDAPXSa7pvbQ8M1OS8gWIwlCi09TiwVzzubjnLOR961Ixg-Hkm0q2p-nirPbFzYPDKmHunxcJcXvIsbdhvhIlZ8XDE-2UsQjq-9T26BBigmJPXemaC_KQnMgjPiRytdAal5ridjWtbJk13Dt2diFqq8eGTOqkbGAL9MbDlRyb3zHz8eoUKQnofVQj6BwSEJD1I6v2Wz_3N0xoxmrlg3Q652HAst0dck0FtH8Z2gbvjgzmLpDqOGJ2nxIck1NXUILrdNUN2YnpBN2VPFnqGCxFpoaxARNgaApXUgFsvu6Ze-zSGww22xuD2gQicqotX4xd7-Osu_irS55-2B3v9tJxlyW_W80">Input UML source code URL</a> :</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="nl">http</span><span class="p">:</span><span class="c1">//www.plantuml.com/plantuml/uml/TLL1R-8y4BtdLyo7AXKalhA7dbPLLGfeMoqjLGEgLbefCiw4M3XsrkEKejN-zxL3o9e25nJFl9bvR_mixiWoOwj2Hly9nMML8jpmwy7eEXbfPV73NfKkUGiGHPS6CyYjBRyE1gLaobTTSLqCoAPIB8C6Eii4ny62qD2WSh-x9kSGXLuAYKa0Z2wdmn-pnJoPprwIyUpjkGqCuoJ-FfcF7hgzg0czFSuVakdas-Hvx8AH5LOYn5koMC2KgPGuAn5ImLQ65P1f0_TY1VTChQ6KF8fU70UjkhmYgmiq07qOxR_xqBcvyCHkuUOYu7dxKy4GsXATWSqHbgvd7pR2vb3MJPciOy0urvMor057SA8icj88mkJUHLDcjbt-nKqAQNLwy3i2W4P8rxSHQfLGVNJWHzz5eVKLFjC0Eourb59lg6L7O3My2zo0K4vzmQpG2jXILzQp5kQGOn_Spg1WQuIIRGjqeQjEBmh899CFssMsyAFcJ-Sc-ZMaXcs0CyfTXyyD2YRaFpcJ__qPg1Knpn54hP59U1BSQDAPXSa7pvbQ8M1OS8gWIwlCi09TiwVzzubjnLOR961Ixg-Hkm0q2p-nirPbFzYPDKmHunxcJcXvIsbdhvhIlZ8XDE-2UsQjq-9T26BBigmJPXemaC_KQnMgjPiRytdAal5ridjWtbJk13Dt2diFqq8eGTOqkbGAL9MbDlRyb3zHz8eoUKQnofVQj6BwSEJD1I6v2Wz_3N0xoxmrlg3Q652HAst0dck0FtH8Z2gbvjgzmLpDqOGJ2nxIck1NXUILrdNUN2YnpBN2VPFnqGCxFpoaxARNgaApXUgFsvu6Ze-zSGww22xuD2gQicqotX4xd7-Osu_irS55-2B3v9tJxlyW_W80</span>
 </pre></div>
 </div>
@@ -282,13 +298,19 @@ Lay_U(mail_system, customer)
 <li><p>plantuml running locally</p></li>
 </ul>
 <p>This URL contains the encoded PlantUML diagram source code.</p>
+</div>
+<div class="section" id="link-to-render-png-from-diagram-source-encoded-url">
+<h3>Link to Render PNG from Diagram Source Encoded URL<a class="headerlink" href="#link-to-render-png-from-diagram-source-encoded-url" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple" start="2">
 <li><p><a class="reference external" href="http://www.plantuml.com/plantuml/uml/TLL1R-8y4BtdLyo7AXKalhA7dbPLLGfeMoqjLGEgLbefCiw4M3XsrkEKejN-zxL3o9e25nJFl9bvR_mixiWoOwj2Hly9nMML8jpmwy7eEXbfPV73NfKkUGiGHPS6CyYjBRyE1gLaobTTSLqCoAPIB8C6Eii4ny62qD2WSh-x9kSGXLuAYKa0Z2wdmn-pnJoPprwIyUpjkGqCuoJ-FfcF7hgzg0czFSuVakdas-Hvx8AH5LOYn5koMC2KgPGuAn5ImLQ65P1f0_TY1VTChQ6KF8fU70UjkhmYgmiq07qOxR_xqBcvyCHkuUOYu7dxKy4GsXATWSqHbgvd7pR2vb3MJPciOy0urvMor057SA8icj88mkJUHLDcjbt-nKqAQNLwy3i2W4P8rxSHQfLGVNJWHzz5eVKLFjC0Eourb59lg6L7O3My2zo0K4vzmQpG2jXILzQp5kQGOn_Spg1WQuIIRGjqeQjEBmh899CFssMsyAFcJ-Sc-ZMaXcs0CyfTXyyD2YRaFpcJ__qPg1Knpn54hP59U1BSQDAPXSa7pvbQ8M1OS8gWIwlCi09TiwVzzubjnLOR961Ixg-Hkm0q2p-nirPbFzYPDKmHunxcJcXvIsbdhvhIlZ8XDE-2UsQjq-9T26BBigmJPXemaC_KQnMgjPiRytdAal5ridjWtbJk13Dt2diFqq8eGTOqkbGAL9MbDlRyb3zHz8eoUKQnofVQj6BwSEJD1I6v2Wz_3N0xoxmrlg3Q652HAst0dck0FtH8Z2gbvjgzmLpDqOGJ2nxIck1NXUILrdNUN2YnpBN2VPFnqGCxFpoaxARNgaApXUgFsvu6Ze-zSGww22xuD2gQicqotX4xd7-Osu_irS55-2B3v9tJxlyW_W80">Output Png Image</a> :</p></li>
 </ol>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="nl">http</span><span class="p">:</span><span class="c1">//www.plantuml.com/plantuml/png/TLL1R-8y4BtdLyo7AXKalhA7dbPLLGfeMoqjLGEgLbefCiw4M3XsrkEKejN-zxL3o9e25nJFl9bvR_mixiWoOwj2Hly9nMML8jpmwy7eEXbfPV73NfKkUGiGHPS6CyYjBRyE1gLaobTTSLqCoAPIB8C6Eii4ny62qD2WSh-x9kSGXLuAYKa0Z2wdmn-pnJoPprwIyUpjkGqCuoJ-FfcF7hgzg0czFSuVakdas-Hvx8AH5LOYn5koMC2KgPGuAn5ImLQ65P1f0_TY1VTChQ6KF8fU70UjkhmYgmiq07qOxR_xqBcvyCHkuUOYu7dxKy4GsXATWSqHbgvd7pR2vb3MJPciOy0urvMor057SA8icj88mkJUHLDcjbt-nKqAQNLwy3i2W4P8rxSHQfLGVNJWHzz5eVKLFjC0Eourb59lg6L7O3My2zo0K4vzmQpG2jXILzQp5kQGOn_Spg1WQuIIRGjqeQjEBmh899CFssMsyAFcJ-Sc-ZMaXcs0CyfTXyyD2YRaFpcJ__qPg1Knpn54hP59U1BSQDAPXSa7pvbQ8M1OS8gWIwlCi09TiwVzzubjnLOR961Ixg-Hkm0q2p-nirPbFzYPDKmHunxcJcXvIsbdhvhIlZ8XDE-2UsQjq-9T26BBigmJPXemaC_KQnMgjPiRytdAal5ridjWtbJk13Dt2diFqq8eGTOqkbGAL9MbDlRyb3zHz8eoUKQnofVQj6BwSEJD1I6v2Wz_3N0xoxmrlg3Q652HAst0dck0FtH8Z2gbvjgzmLpDqOGJ2nxIck1NXUILrdNUN2YnpBN2VPFnqGCxFpoaxARNgaApXUgFsvu6Ze-zSGww22xuD2gQicqotX4xd7-Osu_irS55-2B3v9tJxlyW_W80</span>
 </pre></div>
 </div>
-<p>where <a class="reference external" href="http://www.plantuml.com/plantuml/">http://www.plantuml.com/plantuml/</a><strong>uml</strong>/… changes to <a class="reference external" href="http://www.plantuml.com/plantuml/">http://www.plantuml.com/plantuml/</a><strong>png</strong>/…</p>
+<p>where</p>
+<p><a class="reference external" href="http://www.plantuml.com/plantuml/">http://www.plantuml.com/plantuml/</a><strong>uml</strong>/…  changes to</p>
+<p><a class="reference external" href="http://www.plantuml.com/plantuml/">http://www.plantuml.com/plantuml/</a><strong>png</strong>/…</p>
+</div>
 </div>
 </div>
 

@@ -1,0 +1,51 @@
+======================================================
+Github
+======================================================
+
+A website, documentation, or other information in github can be hosted on https://pages.github.com/.
+
+See https://help.github.com/en/articles/about-github-pages.
+
+.. tip ::
+
+    Sphinx output HTML can be hosted on https://pages.github.com/. 
+
+    https://sphinx-gallery.github.io/index.html is a good example.
+
+
+.. warning ::
+
+    For Sphinx generated html to render, an empty file called ``.nojekyll`` must be added to the root directory. 
+
+    This tells GitHub Pages not to run the published files through Jekyll. This is important since Jekyll will discard any files that begin with ``_``. 
+    
+    In the case of Sphinx, this would be the _images/  _sources/ _static/ directories!
+
+
+sphinx-gallery Example
+=======================
+
+https://sphinx-gallery.github.io/index.html is an example of an organisation/user site:
+
+    * the documentation source is https://github.com/sphinx-gallery/sphinx-gallery
+    * the Sphinx output html is in https://github.com/sphinx-gallery/sphinx-gallery.github.io
+    * when https://sphinx-gallery.github.io/index.html is viewed, the user sees the rendered html (from https://github.com/sphinx-gallery/sphinx-gallery.github.io)
+
+Project Site Recipe
+====================
+
+#. Create project site as https://github.com/user/<repository>
+#. Clone repo
+#. Add .nojekyll empty file in <repository>. If you don't do this, the html content will be viewable but without the CSS.
+#. Build Sphinx html 
+#. Add output docs/build/* content to repo
+#. Push repo to remote: git push -u origin master
+#. view site on http://user.github.io/<repository>
+
+
+Pushing to Multiple Git Repos
+=================================
+
+If a project needs to live in multiple remote repos e.g. Github, Bitbucket, then it is possible to push to these multiple repos at one time.
+
+See https://gist.github.com/rvl/c3f156e117e22a25f242

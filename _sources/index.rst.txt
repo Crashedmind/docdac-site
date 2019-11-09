@@ -9,7 +9,7 @@ Welcome to DOCDAC's documentation!
 
     .. code-block:: bash
 
-        git clone ssh://git@bitbucket.verifone.com:7999/~chris_m11/docdac.git #get the documentation and toolset (Dockerfile) source text files
+        git clone git@github.com:Crashedmind/docdac.git #get the documentation and toolset (Dockerfile) source text files
         cd ./docdac
         ./docker_build.sh # build toolset form Docker file 
         ./sphinx_build.sh # build this html guide using the toolset 
@@ -51,6 +51,12 @@ Welcome to DOCDAC's documentation!
    
    confluence
    confluence_plantuml
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Github
+
+   github
 
 .. toctree::
    :maxdepth: 2
