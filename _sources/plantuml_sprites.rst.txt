@@ -157,7 +157,12 @@ Create Diagram with our Sprites
    
 
 
-Create Sprites by converting existing icon libaries
+Create Sprites by converting Elastic icon libaries
+----------------------------------------------------
+
+See demo and details at https://github.com/Crashedmind/PlantUML-Elastic-icons
+
+Create Sprites by converting OSA icon libaries
 ----------------------------------------------------
 
 `Open Security

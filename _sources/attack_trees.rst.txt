@@ -1,0 +1,32 @@
+======================================================
+Attack Trees
+======================================================
+
+Attack Trees are a simple effective way to understand what assets are at risk, the threats against them, and the associated countermeasures.
+
+Here we use `PlantUML WBS  <https://plantuml.com/wbs-diagram>`_ to create the tree structure, with `PlantUML Styles <https://plantuml.com/style-evolution>`_ to highlight the target, attacks, and countermeasures.
+
+
+.. csv-table:: Legend
+   :header: "Type", "Colour", "Meaning"
+   :widths: 10, 10, 50
+    
+    "AttackTarget", "Red Fill",	"The Asset that is the target of Attack. This is the root of the tree."
+    "AttackPath", "Red Outline",	"Each node is an individual Attack step. An Attack may consist of sub-branches that are different ways of implementing the parent attack step. An & symbol on an Attack node means that it must be combined with other attacks. Default is OR i.e. either one attack OR the other could be used."
+    "CounterMeasure", "Green Fill",	"The countermeasure against the Attack. This is at the end of the branch."
+
+
+An Attack Tree for PIN Entry
+=========================================================
+
+.. uml:: ./plantuml/attack_trees.puml 
+    :align: center
+
+Diagram Source
+------------------------
+
+.. literalinclude:: ./plantuml/attack_trees.puml 
+    :linenos: 
+
+
+

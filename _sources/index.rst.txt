@@ -3,6 +3,7 @@ Welcome to DOCDAC's documentation!
 
     *Documentation-Of-Code Documentation-As-Code*
 
+NOTE: See https://crashedmind.github.io/docdac-site/ for the rendered version.
 
 .. tip ::
     Within 5 minutes, you can build this guide and all the diagrams in it, and the toolset, from source text files in GIT.
@@ -44,6 +45,7 @@ Welcome to DOCDAC's documentation!
    plantuml_server
    c4
    plantuml_c4
+   attack_trees
 
 .. toctree::
    :maxdepth: 2
